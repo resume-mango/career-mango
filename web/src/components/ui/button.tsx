@@ -14,9 +14,9 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-white hover:bg-secondary-foreground disabled:bg-gray",
 
-        link: "bg-gradient-to-r to-primary from-orange text-white hover:from-primary hover:to-primary bg-clip-text	text-transparent disabled:bg-none disabled:bg-lightGray",
+        link: "inline-block bg-gradient-to-r to-primary from-orange text-white hover:from-primary hover:to-primary bg-clip-text	text-transparent disabled:bg-none disabled:bg-lightGray",
         outline:
-          "bg-gradient-to-r from-orange to-primary bg-clip-text text-transparent relative before:content-[''] before:absolute before:inset-auto before:rounded-full before:bg-background before:-z-10 after:content-[''] after:absolute after:inset-0 after:rounded-full after:bg-gradient-to-r after:from-orange after:to-primary before:h-[calc(100%-2px)] before:w-[calc(100%-2px)] after:-z-20",
+          "inline-block text-center bg-gradient-to-r from-orange to-primary bg-clip-text text-transparent relative before:inline-block before:content-[''] before:absolute before:inset-[1px] before:rounded-full before:bg-background before:-z-10 after:content-[''] after:absolute after:inset-0 after:rounded-full after:bg-gradient-to-r after:from-orange after:to-primary before:h-[calc(100%-2px)] before:w-[calc(100%-2px)] after:-z-20",
       },
       size: {
         default: "w-fit py-2.5 px-6",

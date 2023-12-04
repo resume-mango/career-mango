@@ -1,5 +1,6 @@
 "use client";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,19 +33,22 @@ const Templates = () => {
           <Button variant={"secondary"}>Create resume for free</Button>
         </div>
       </div>
-      <div className="grid grid-flow-col-dense items-center px-4 xl:p-0 gap-2 mb-6 overflow-x-auto max-w-screen-sm">
-        {navLinks.map((nav, i) => (
-          <a
-            key={i}
-            className={cn(
-              "cursor-pointer w-fit p-2 flex whitespace-nowrap",
-              category === nav.value ? "text-foreground" : "text-gray"
-            )}
-          >
-            {nav.name}
-          </a>
-        ))}
-      </div>
+      <ScrollArea className="max-w-screen-sm mb-6">
+        <div className="grid grid-flow-col-dense items-center gap-2 px-4 xl:p-0 h-10">
+          {navLinks.map((nav, i) => (
+            <a
+              key={i}
+              className={cn(
+                "cursor-pointer w-fit p-2 flex whitespace-nowrap",
+                category === nav.value ? "text-foreground" : "text-gray"
+              )}
+            >
+              {nav.name}
+            </a>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-2">
         {[...Array(4)].map((t, i) => (
           <div key={i} className="space-y-4 p-4 md:p-0">

@@ -12,7 +12,7 @@ const BlogCard = () => {
         alt="Blog"
         width={400}
         height={400}
-        className="object-cover h-[250px] object-center rounded-2xl"
+        className="object-cover h-[250px] object-center rounded-2xl bg-lightGray/30 text-center"
       />
       <p className="text-gray text-xs">28 May 2023</p>
       <h3 className="line-clamp-2">

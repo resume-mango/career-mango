@@ -24,7 +24,7 @@ const Page = () => {
               alt={"Blog"}
               width={630}
               height={300}
-              className="object-cover object-center overflow-hidden h-[300px] rounded-xl"
+              className="object-cover object-center overflow-hidden h-[300px] rounded-xl bg-lightGray/30"
             />
             <div className="space-y-3 flex flex-col">
               <p className="text-gray text-xs">28 May 2023</p>
