@@ -56,9 +56,9 @@ const TemplatesList = ({ type }: { type: TemplateType }) => {
         </ScrollArea>
       </div>
 
-      <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-2">
+      <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6">
         {[...Array(4)].map((t, i) => (
-          <div key={i} className="space-y-4 p-4 md:p-0">
+          <div key={i} className="space-y-4 md:p-0">
             <Image
               src={"/templates/demo.png"}
               alt="Template"
