@@ -34,12 +34,12 @@ const Templates = () => {
         </div>
       </div>
       <ScrollArea className="max-w-screen-sm mb-6">
-        <div className="grid grid-flow-col-dense items-center gap-2 px-4 xl:p-0 h-10">
+        <div className="grid grid-flow-col-dense items-center gap-2 px-4 xl:p-0 h-10  overflow-y-hidden">
           {navLinks.map((nav, i) => (
             <a
               key={i}
               className={cn(
-                "cursor-pointer w-fit p-2 flex whitespace-nowrap",
+                "cursor-pointer w-fit flex whitespace-nowrap",
                 category === nav.value ? "text-foreground" : "text-gray"
               )}
             >
@@ -49,7 +49,7 @@ const Templates = () => {
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6">
+      <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6 xl:px-0">
         {[...Array(4)].map((t, i) => (
           <div key={i} className="space-y-4 md:p-0">
             <Image
