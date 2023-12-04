@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { getIsSsrMobile } from "@/hooks/isMobile";
 import { SsrMobileProvider } from "@/context/mobile";
+import { ViewportProvider } from "@/context/viewport";
 
 export const merchant = localFont({
   src: [
@@ -33,11 +34,13 @@ export default function RootLayout(props: any) {
   return (
     <html lang="en">
       <SsrMobileProvider value={isMobile}>
-        <body
-          className={`${merchant.variable} ${outfit.variable} ${outfit.className}`}
-        >
-          {props.children}
-        </body>
+        <ViewportProvider>
+          <body
+            className={`${merchant.variable} ${outfit.variable} ${outfit.className}`}
+          >
+            {props.children}
+          </body>
+        </ViewportProvider>
       </SsrMobileProvider>
     </html>
   );

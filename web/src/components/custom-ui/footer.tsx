@@ -7,6 +7,33 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 
 const Footer = () => {
+  const links = {
+    resume: {
+      label: "Resume",
+      link: "/templates/resume",
+    },
+    coverletter: {
+      label: "Cover Letter",
+      link: "/templates/coverletter",
+    },
+    pricing: {
+      label: "Pricing",
+      link: "/pricing",
+    },
+    blog: {
+      label: "Blog",
+      link: "/blogs",
+    },
+    privacy: {
+      label: "Privacy Policy",
+      link: "/privacy-policy",
+    },
+    terms: {
+      label: "Terms & Conditions",
+      link: "/terms-conditions",
+    },
+  };
+
   return (
     <footer className="flex justify-between items-center h-fit mx-auto max-w-screen-xl p-4 xl:px-0">
       <div className="bg-black rounded-2xl text-white p-8 space-y-6 w-full">
@@ -27,17 +54,19 @@ const Footer = () => {
           <div className="w-full md:w-1/4 space-y-6">
             <h3>Navigation</h3>
             <div className="grid grid-cols-2 gap-2">
-              <Link href={"/"}>Resume</Link>
-              <Link href={"/"}>Pricing</Link>
-              <Link href={"/"}>Cover Letter</Link>
-              <Link href={"/"}>Blog</Link>
+              <Link href={links.resume.link}>{links.resume.label}</Link>
+              <Link href={links.pricing.link}>{links.pricing.label}</Link>
+              <Link href={links.coverletter.link}>
+                {links.coverletter.label}
+              </Link>
+              <Link href={links.blog.link}>{links.blog.label}</Link>
             </div>
           </div>
           <div className="w-full md:w-1/4 space-y-6">
             <h3>Social Links</h3>
             <div>
               <Link
-                href={"/"}
+                href={configuration.socialLinks.linkedin}
                 className={cn(
                   buttonVariants({ size: "icon" }),
                   "flex items-center justify-center"
@@ -50,8 +79,8 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-between md:items-center text-muted-foreground w-full gap-4">
           <div className="space-x-6 w-full flex justify-between sm:justify-start">
-            <Link href={"/"}>Privacy Policy</Link>
-            <Link href={"/"}>Terms & Conditions</Link>
+            <Link href={links.privacy.link}>{links.privacy.label}</Link>
+            <Link href={links.terms.link}>{links.terms.label}</Link>
           </div>
           <div className="space-x-6 w-fit whitespace-nowrap">
             <p>© Copyright 2023 Resumemango.</p>

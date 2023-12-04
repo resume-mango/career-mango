@@ -22,6 +22,8 @@ const TemplateHero = ({ type }: { type: "resume" | "coverletter" }) => {
 
   const curr = data[type];
 
+  if (!curr) return null;
+
   return (
     <div className="flex-col-reverse lg:flex-row flex items-center justify-between gap-4 px-6 xl:p-0">
       <div className="flex-1 ">

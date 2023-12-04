@@ -71,7 +71,7 @@
     @apply border-border;
   }
   a {
-    @apply hover:text-primary  transition-colors ease-in-out;
+    @apply hover:text-primary  transition-colors ease-in-out cursor-pointer;
   }
   h1,
   h2 {
@@ -100,6 +100,17 @@
 
   svg {
     @apply stroke-foreground;
+  }
+
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
