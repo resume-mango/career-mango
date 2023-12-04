@@ -40,6 +40,7 @@ const TemplateHero = ({ type }: { type: "resume" | "coverletter" }) => {
           alt={type === "resume" ? "Resume Image" : "Coverletter Image"}
           width={475}
           height={475}
+          loading="eager"
         />
       </div>
     </div>

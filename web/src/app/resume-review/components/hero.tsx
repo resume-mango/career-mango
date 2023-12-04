@@ -26,6 +26,7 @@ const ResumeReviewHero = () => {
           alt="hero image"
           width={500}
           height={500}
+          loading="eager"
         />
       </div>
     </section>
