@@ -54,8 +54,8 @@ const Page = () => {
               experience in your field of interest, build your professional
               network, and increase your chances of landing a job after
               graduation. However, finding the perfect internship can be
-              challenging. In this guide, we'll discuss some tips and tricks to
-              help you find and secure your dream internship.
+              challenging. In this guide, we&apos;ll discuss some tips and
+              tricks to help you find and secure your dream internship.
             </p>{" "}
             <h3>Start Early</h3>
             <p>
@@ -64,8 +64,8 @@ const Page = () => {
               experience in your field of interest, build your professional
               network, and increase your chances of landing a job after
               graduation. However, finding the perfect internship can be
-              challenging. In this guide, we'll discuss some tips and tricks to
-              help you find and secure your dream internship.
+              challenging. In this guide, we&apos;ll discuss some tips and
+              tricks to help you find and secure your dream internship.
             </p>{" "}
             <h3>Start Early</h3>
             <p>
@@ -74,8 +74,8 @@ const Page = () => {
               experience in your field of interest, build your professional
               network, and increase your chances of landing a job after
               graduation. However, finding the perfect internship can be
-              challenging. In this guide, we'll discuss some tips and tricks to
-              help you find and secure your dream internship.
+              challenging. In this guide, we&apos;ll discuss some tips and
+              tricks to help you find and secure your dream internship.
             </p>{" "}
             <h3>Start Early</h3>
             <p>
@@ -84,8 +84,8 @@ const Page = () => {
               experience in your field of interest, build your professional
               network, and increase your chances of landing a job after
               graduation. However, finding the perfect internship can be
-              challenging. In this guide, we'll discuss some tips and tricks to
-              help you find and secure your dream internship.
+              challenging. In this guide, we&apos;ll discuss some tips and
+              tricks to help you find and secure your dream internship.
             </p>{" "}
             <h3>Start Early</h3>
             <p>
@@ -94,8 +94,8 @@ const Page = () => {
               experience in your field of interest, build your professional
               network, and increase your chances of landing a job after
               graduation. However, finding the perfect internship can be
-              challenging. In this guide, we'll discuss some tips and tricks to
-              help you find and secure your dream internship.
+              challenging. In this guide, we&apos;ll discuss some tips and
+              tricks to help you find and secure your dream internship.
             </p>
           </article>
           {isMobile ? (
