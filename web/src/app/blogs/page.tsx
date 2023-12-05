@@ -19,18 +19,22 @@ const Page = () => {
             explore our blog
           </h1>
           <div className="grid gap-8 lg:grid-cols-2">
-            <Image
-              src={"/example/blog.png"}
-              alt={"Blog"}
-              width={630}
-              height={300}
-              className="object-cover object-center overflow-hidden h-[300px] rounded-xl bg-lightGray/30"
-            />
+            <Link href={"/blogs/id"} passHref>
+              <Image
+                src={"/example/blog.png"}
+                alt={"Blog"}
+                width={630}
+                height={300}
+                className="object-cover object-center overflow-hidden h-[300px] rounded-xl bg-lightGray/30"
+              />
+            </Link>
             <div className="space-y-3 flex flex-col">
               <p className="text-gray text-xs">28 May 2023</p>
-              <h3 className="line-clamp-2">
-                How to Find the Perfect Internship: A Comprehensive Guide
-              </h3>
+              <Link href={"/blogs/id"} passHref>
+                <h3 className="line-clamp-2">
+                  How to Find the Perfect Internship: A Comprehensive Guide
+                </h3>
+              </Link>
               <p className="line-clamp-[8]">
                 Are you a student or recent graduate looking for an internship?
                 Congratulations! Internships are everywhere Are you a student or
@@ -40,7 +44,7 @@ const Page = () => {
                 everywhere
               </p>
               <Link
-                href={"/"}
+                href={"/blogs/id"}
                 className={cn(
                   buttonVariants({ variant: "link", size: "link" }),
                   "justify-start flex-1 items-end rounded-none"
