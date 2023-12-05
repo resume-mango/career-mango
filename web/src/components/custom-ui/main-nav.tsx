@@ -154,7 +154,7 @@ const MainNav = () => {
   return (
     <nav
       className={cn(
-        "z-40 bg-background p-4 transition-all duration-300 ease-in-out sticky top-0",
+        "mt-3 z-40 bg-background p-4 transition-all duration-300 ease-in-out sticky top-0",
         scrollPos > 100
           ? scrollDirection === "up"
             ? "translate-y-0"
