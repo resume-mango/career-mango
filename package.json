@@ -4,27 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
-    "commitizen": "commitizen"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-customizable"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && node_modules/.bin/cz --hook || true"
-    }
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.0.0",
-    "husky": "^8.0.3"
+    "semantic-release": "^22.0.10"
   }
 }
