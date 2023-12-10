@@ -20,3 +20,21 @@ article ol {
 article li {
   @apply my-4 pl-4;
 }
+
+article img {
+  @apply bg-muted mx-auto w-full h-[500px] my-8 object-contain rounded-xl p-4 border;
+}
+article table,
+article th,
+article td {
+  @apply border;
+}
+
+article table {
+  @apply my-8;
+}
+
+article td,
+article th {
+  @apply p-2 text-base;
+}
