@@ -32,7 +32,7 @@ const BlogCard = ({
         />
       </Link>
       <p className="text-gray text-xs">
-        {format(new Date(blog.createdAt), "dd MMM yyyy")}
+        {format(new Date(blog.updatedAt), "dd MMM yyyy")}
       </p>
       <Link href={"/blogs/id"} passHref>
         {readMore ? (
