@@ -1,16 +1,39 @@
-import Footer from "@/components/custom-ui/footer";
-import MainNav from "@/components/custom-ui/main-nav";
-import ResumeReviewHero from "./components/hero";
-import ResumeReviewFeatures from "./components/features";
-import ResumeReviewSteps from "./components/steps";
-import Reviews from "../components/reviews";
-import Faqs from "../../components/custom-ui/faqs";
-import WhyDiffrent from "@/components/custom-ui/whyDiffrent";
+import Footer from "@/components/custom-ui/footer"
+import MainNav from "@/components/custom-ui/main-nav"
+import ResumeReviewHero from "./components/hero"
+import ResumeReviewFeatures from "./components/features"
+import ResumeReviewSteps from "./components/steps"
+import Reviews from "../components/reviews"
+import Faqs from "../../components/custom-ui/faqs"
+import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
+
+export const generateMetadata = async () => {
+  const metadata = {
+    title: "Expert insights to elevate your resume and land more interviews",
+    description:
+      "Unlock the full potential of your resume with our professional resume review service. Our team of experts will provide comprehensive feedback and insights to help you elevate your resume's impact.",
+  }
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+
+    openGraph: {
+      type: "article",
+      title: metadata.title, //Post Title
+      description: metadata.description, //Post Description,
+    },
+    twitter: {
+      description: metadata.description, //Post Description,
+      title: metadata.title, //Post Title,
+    },
+  }
+}
 
 const Page = ({
   params: { type },
 }: {
-  params: { type: "resume" | "coverletter" };
+  params: { type: "resume" | "coverletter" }
 }) => {
   return (
     <>
@@ -40,7 +63,7 @@ const Page = ({
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

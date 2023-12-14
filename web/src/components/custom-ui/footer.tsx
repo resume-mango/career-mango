@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="space-y-6 flex-1">
             <Image
               src="/logo-white.svg"
-              alt={`${configuration.site.siteName} logo`}
+              alt={`${configuration.site.name} logo`}
               width={180}
               height={40}
             />

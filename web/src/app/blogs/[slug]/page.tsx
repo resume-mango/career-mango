@@ -8,7 +8,6 @@ import ReadMore from "./components/readMore"
 import MainImg from "./components/mainImg"
 import { SingleBlog } from "@/types/blog"
 import Article from "./components/article"
-import Loading from "./loading"
 
 const getData = async (slug: string) => {
   const res = await fetch(`${configuration.site.apiUrl}/public/blog/${slug}`, {
@@ -20,6 +19,36 @@ const getData = async (slug: string) => {
   }
 
   return (await res.json()) as SingleBlog
+}
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}) => {
+  const post = params.slug && (await getData(params.slug))
+  if (!post) return
+
+  return {
+    title: post.title, //Post Title
+    description: post.short_description, //Post Description,
+
+    alternates: {
+      canonical: post.slug, // Post Canonical
+    },
+    openGraph: {
+      type: "article",
+      title: post.title, //Post Title
+      description: post.short_description, //Post Description,
+      publishedTime: post.updatedAt, //Update
+      images: post.image, //Post Image Url,
+    },
+    twitter: {
+      description: post.short_description, //Post Description,
+      title: post.title, //Post Title,
+      images: post.image, //Post Image Url,
+    },
+  }
 }
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {

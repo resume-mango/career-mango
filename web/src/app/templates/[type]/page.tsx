@@ -1,17 +1,49 @@
-import Footer from "@/components/custom-ui/footer";
-import MainNav from "@/components/custom-ui/main-nav";
-import React, { useMemo } from "react";
-import TemplateHero from "./components/hero";
-import TemplatesList from "./components/list";
-import Reviews from "../../components/reviews";
-import TemplateTips from "./components/tips";
-import Faqs from "@/components/custom-ui/faqs";
-import WhyDiffrent from "@/components/custom-ui/whyDiffrent";
+import Footer from "@/components/custom-ui/footer"
+import MainNav from "@/components/custom-ui/main-nav"
+import React, { useMemo } from "react"
+import TemplateHero from "./components/hero"
+import TemplatesList from "./components/list"
+import Reviews from "../../components/reviews"
+import TemplateTips from "./components/tips"
+import Faqs from "@/components/custom-ui/faqs"
+import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
+
+export const generateMetadata = async ({
+  params: { type },
+}: {
+  params: { type: "resume" | "coverletter" }
+}) => {
+  const metadata = {
+    title:
+      type === "coverletter"
+        ? "The fastest way to create job Cover Letters"
+        : "Stand out with these Top-Notch Resume Templates",
+    description:
+      type === "coverletter"
+        ? "Proven cover letter templates to get you noticed by job recruiters. Apply to your ideal job now with these easy to use, professional designs "
+        : "These resume templates give you the confidence and edge necessary to catch your recruiters’ attention by standing out. Check out these professionally designed templates and get started now.",
+  }
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+
+    openGraph: {
+      type: "article",
+      title: metadata.title, //Post Title
+      description: metadata.description, //Post Description,
+    },
+    twitter: {
+      description: metadata.description, //Post Description,
+      title: metadata.title, //Post Title,
+    },
+  }
+}
 
 const Page = ({
   params: { type },
 }: {
-  params: { type: "resume" | "coverletter" };
+  params: { type: "resume" | "coverletter" }
 }) => {
   const params = useMemo(() => {
     if (type === "resume") {
@@ -31,7 +63,7 @@ const Page = ({
           url: "/",
           name: "Browse Templates",
         },
-      };
+      }
     } else {
       return {
         title: "Craft compelling cover letters and stand out from the crowd",
@@ -49,9 +81,9 @@ const Page = ({
           url: "/",
           name: "Browse Templates",
         },
-      };
+      }
     }
-  }, [type]);
+  }, [type])
 
   return (
     <>
@@ -68,7 +100,7 @@ const Page = ({
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

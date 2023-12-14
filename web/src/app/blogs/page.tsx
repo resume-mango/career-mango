@@ -11,13 +11,37 @@ import configuration from "../../../config"
 import { AllBlogs } from "@/types/blog"
 import format from "date-fns/format"
 
+export const generateMetadata = async () => {
+  const metadata = {
+    title: "Insights and inspiration: explore our blogs",
+    description:
+      "Unlock Your Career Potential with Our All-in-One Job Hunting Platform! Explore our blogs covering expert tips on resumes, cover letters, and more to land your dream job.",
+  }
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+
+    openGraph: {
+      type: "article",
+      title: metadata.title, //Post Title
+      description: metadata.description, //Post Description,
+    },
+    twitter: {
+      description: metadata.description, //Post Description,
+      title: metadata.title, //Post Title,
+    },
+  }
+}
+
 const limit = 3
 
 const getData = async (page: number | undefined) => {
   const res = await fetch(
     `${configuration.site.apiUrl}/public/blogs?limit=${
       !page || page == 0 ? limit + 1 : limit
-    }&page=${page || 0}`
+    }&page=${page || 0}`,
+    { next: { revalidate: 15 * 60 } }
   )
   if (!res.ok) {
     throw new Error("Failed to fetch data")

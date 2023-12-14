@@ -5,6 +5,7 @@ export type SingleBlogList = {
   slug: string
   image: string
   createdAt: string
+  updatedAt: string
 }
 export type HomepageAPIResult = {
   blogs: Array<SingleBlogList>

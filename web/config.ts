@@ -1,12 +1,13 @@
 const configuration = {
   site: {
     name: "Career Mango",
-    description: "",
-    themeColor: "#00BB78",
+    title: "Career Mango | Bringing all your Job Hunting needs in one place.",
+    description:
+      "We offer Resume Reviews, Interview Prep & Career Advice from highly educated industry leaders with 10+ years of HR and recruiting experience",
+    themeColor: "#EE3F23",
     siteUrl: process.env.NEXT_PUBLIC_WEB_URL,
     apiUrl: process.env.NEXT_PUBLIC_API_URL + "/v1",
-    siteName: "Lipy AI - Business Assisant",
-    twitterHandle: "@LipyAi_",
+    twitterHandle: "",
     language: "en",
   },
   socialLinks: {
@@ -19,10 +20,6 @@ const configuration = {
   support: {
     email: "support@resumemango.com",
   },
-  blog: {
-    maxReadMorePosts: 4,
-  },
-  production: process.env.NODE_ENV === "production",
 }
 
 export default configuration
