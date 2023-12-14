@@ -1,13 +1,13 @@
-"use client";
+"use client"
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useRef } from "react";
-import configuration from "../../../config";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
-import useScroll from "@/hooks/scroll";
-import { useIsMobile } from "@/context/mobile";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
+import React, { useEffect, useRef } from "react"
+import configuration from "../../../config"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "../ui/button"
+import useScroll from "@/hooks/scroll"
+import { useIsMobile } from "@/context/mobile"
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet"
 
 const gradientClose = (
   <svg
@@ -39,7 +39,7 @@ const gradientClose = (
       </linearGradient>
     </defs>
   </svg>
-);
+)
 
 const gradientMenu = (
   <svg
@@ -71,11 +71,11 @@ const gradientMenu = (
       </linearGradient>
     </defs>
   </svg>
-);
+)
 
 const MainNav = () => {
-  const { scrollPos, scrollDirection } = useScroll();
-  const isMobile = useIsMobile();
+  const { scrollPos, scrollDirection } = useScroll()
+  const isMobile = useIsMobile()
 
   const links = [
     { name: "Resume", url: "/templates/resume" },
@@ -83,12 +83,12 @@ const MainNav = () => {
     { name: "Resume Review", url: "/resume-review" },
     { name: "Pricing", url: "/pricing" },
     { name: "Blog", url: "/blogs" },
-  ];
+  ]
 
   const actionBtns = {
-    login: { name: "Log In", url: "/" },
-    signup: { name: "Sign Up Now", url: "/" },
-  };
+    login: { name: "Log In", url: process.env.NEXT_PUBLIC_AUTH_URL },
+    signup: { name: "Sign Up Now", url: process.env.NEXT_PUBLIC_AUTH_URL },
+  }
 
   const logo = (
     <Link href={"/"} passHref>
@@ -100,7 +100,7 @@ const MainNav = () => {
         className="relative bottom-1.5"
       />
     </Link>
-  );
+  )
 
   if (isMobile)
     return (
@@ -133,7 +133,7 @@ const MainNav = () => {
                   buttonVariants({ variant: "outline" }),
                   "w-full font-normal"
                 )}
-                href={actionBtns.login.url}
+                href={actionBtns.login.url!}
               >
                 {actionBtns.login.name}
               </Link>
@@ -141,7 +141,7 @@ const MainNav = () => {
             <div>
               <Link
                 className={cn(buttonVariants({}), "w-full font-normal")}
-                href={actionBtns.signup.url}
+                href={actionBtns.signup.url!}
               >
                 {actionBtns.signup.name}
               </Link>
@@ -149,7 +149,7 @@ const MainNav = () => {
           </div>
         </SheetContent>
       </Sheet>
-    );
+    )
 
   return (
     <nav
@@ -174,18 +174,18 @@ const MainNav = () => {
 
         <div className="gap-8 font-normal">
           <Link
-            href={actionBtns.login.url}
+            href={actionBtns.login.url!}
             className={cn(buttonVariants({ variant: "link" }), "font-normal")}
           >
             {actionBtns.login.name}
           </Link>
-          <Link href={actionBtns.signup.url} className={cn(buttonVariants())}>
+          <Link href={actionBtns.signup.url!} className={cn(buttonVariants())}>
             {actionBtns.signup.name}
           </Link>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default MainNav;
+export default MainNav

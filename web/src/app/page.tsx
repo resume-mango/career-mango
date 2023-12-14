@@ -1,17 +1,33 @@
-import MainNav from "@/components/custom-ui/main-nav";
-import { Button } from "@/components/ui/button";
+import MainNav from "@/components/custom-ui/main-nav"
+import { Button, buttonVariants } from "@/components/ui/button"
 
-import Image from "next/image";
-import Features from "./components/features";
-import Templates from "./components/templates";
-import ResumeReview from "./components/resumeReview";
-import Video from "./components/video";
-import Journery from "./components/journery";
-import Blog from "./components/blog";
-import Faqs from "../components/custom-ui/faqs";
-import Footer from "@/components/custom-ui/footer";
-import WhyDiffrent from "@/components/custom-ui/whyDiffrent";
-export default function Home() {
+import Image from "next/image"
+import Features from "./components/features"
+import Templates from "./components/templates"
+import ResumeReview from "./components/resumeReview"
+import Video from "./components/video"
+import Journery from "./components/journery"
+import Blog from "./components/blog"
+import Faqs from "../components/custom-ui/faqs"
+import Footer from "@/components/custom-ui/footer"
+import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import configuration from "../../config"
+import { HomepageAPIResult } from "@/types/blog"
+const getData = async () => {
+  const res = await fetch(`${configuration.site.apiUrl}/public/home`, {
+    next: { revalidate: 15 * 60 },
+  })
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data")
+  }
+
+  return (await res.json()) as HomepageAPIResult
+}
+export default async function Home() {
+  const data = await getData()
   return (
     <>
       <MainNav />
@@ -26,7 +42,12 @@ export default function Home() {
               highly educated industry leaders with 10+ years of HR and
               recruiting experience
             </p>
-            <Button className="sm:w-fit w-full">Try For Free</Button>
+            <Link
+              href={process.env.NEXT_PUBLIC_APP_URL!}
+              className={cn(buttonVariants(), "sm:w-fit w-full")}
+            >
+              Try For Free
+            </Link>
           </div>
           <div className="mb-10 sm:mb-0">
             <Image
@@ -44,10 +65,10 @@ export default function Home() {
         <WhyDiffrent.style1 />
         <Video />
         <Journery />
-        <Blog />
+        <Blog blogs={data.blogs} />
         <Faqs />
       </main>
       <Footer />
     </>
-  );
+  )
 }

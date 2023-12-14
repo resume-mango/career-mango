@@ -1,10 +1,10 @@
-import Image from "next/image";
-import React from "react";
-import configuration from "../../../config";
-import Link from "next/link";
-import Icons from "../icons";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
+import Image from "next/image"
+import React from "react"
+import configuration from "../../../config"
+import Link from "next/link"
+import Icons from "../icons"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "../ui/button"
 
 const Footer = () => {
   const links = {
@@ -32,7 +32,7 @@ const Footer = () => {
       label: "Terms & Conditions",
       link: "/terms-conditions",
     },
-  };
+  }
 
   return (
     <footer className="flex justify-between items-center h-fit mx-auto max-w-screen-xl p-4 xl:px-0">
@@ -83,12 +83,12 @@ const Footer = () => {
             <Link href={links.terms.link}>{links.terms.label}</Link>
           </div>
           <div className="space-x-6 w-fit whitespace-nowrap">
-            <p>© Copyright 2023 Resumemango.</p>
+            <p>© Copyright 2023 Careermango.co</p>
           </div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

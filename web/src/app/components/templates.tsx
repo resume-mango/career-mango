@@ -1,10 +1,10 @@
-"use client";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+"use client"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import React, { useState } from "react"
 
 const navLinks = [
   { name: "Simple", value: "simple" },
@@ -12,10 +12,10 @@ const navLinks = [
   { name: "Creative", value: "creative" },
   { name: "With Image", value: "with-image" },
   { name: "Without Image", value: "without-image" },
-];
+]
 
 const Templates = () => {
-  const [category] = useState(navLinks[0].value);
+  const [category] = useState(navLinks[0].value)
 
   return (
     <div className="mx-auto max-w-screen-xl">
@@ -30,7 +30,12 @@ const Templates = () => {
           </p>
         </div>
         <div className="hidden md:flex w-3/12 items-center justify-end">
-          <Button variant={"secondary"}>Create resume for free</Button>
+          <Link
+            href={`${process.env.NEXT_PUBLIC_APP_URL!}/resumes/new`}
+            className={cn(buttonVariants({ variant: "secondary" }))}
+          >
+            Create resume for free
+          </Link>
         </div>
       </div>
       <ScrollArea className="max-w-screen-sm mb-6">
@@ -77,7 +82,7 @@ const Templates = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Templates;
+export default Templates

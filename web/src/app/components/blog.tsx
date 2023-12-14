@@ -1,21 +1,24 @@
-"use client";
-import BlogCard from "@/components/custom-ui/cards/blog";
-import { buttonVariants } from "@/components/ui/button";
-import { useIsMobile } from "@/context/mobile";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+"use client"
+import BlogCard from "@/components/custom-ui/cards/blog"
+import { buttonVariants } from "@/components/ui/button"
+import { useIsMobile } from "@/context/mobile"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
+import React from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/pagination"
+import { Pagination } from "swiper/modules"
+import { SingleBlogList } from "@/types/blog"
 
-const Blog = () => {
-  const isMobile = useIsMobile();
+const Blog = ({ blogs }: { blogs: SingleBlogList[] }) => {
+  const isMobile = useIsMobile()
+
+  if (!blogs || blogs.length === 0) return null
 
   const button = (
     <Link
-      href={"/"}
+      href={"/blogs"}
       className={cn(
         buttonVariants({ variant: "secondary" }),
         "w-full sm:w-fit"
@@ -23,7 +26,7 @@ const Blog = () => {
     >
       Explore More
     </Link>
-  );
+  )
 
   return (
     <section className="mx-auto max-w-screen-xl px-6">
@@ -48,9 +51,9 @@ const Blog = () => {
               el: "#paginator",
             }}
           >
-            {[...Array(3)].map((blog, i) => (
+            {blogs.map((blog, i) => (
               <SwiperSlide key={i}>
-                <BlogCard />
+                <BlogCard blog={blog} />
               </SwiperSlide>
             ))}
             <div
@@ -60,15 +63,15 @@ const Blog = () => {
           </Swiper>
         ) : (
           <div className="grid grid-cols-3 gap-8">
-            {[...Array(3)].map((blog, i) => (
-              <BlogCard key={i} />
+            {blogs.map((blog, i) => (
+              <BlogCard key={i} blog={blog} />
             ))}
           </div>
         )}
       </div>
       {isMobile && <div className="my-8">{button}</div>}
     </section>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog

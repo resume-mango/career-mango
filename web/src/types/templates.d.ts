@@ -1,1 +1,1 @@
-export type TemplateType = "resume" | "coverletter";
+export type TemplateType = "resume" | "coverletter"

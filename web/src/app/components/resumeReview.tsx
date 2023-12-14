@@ -1,8 +1,8 @@
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button, buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
 
 const ResumeReview = () => {
   return (
@@ -22,13 +22,16 @@ const ResumeReview = () => {
             Explore our wide range of resume templates designed to help you
             stand out and succeed in the USA and Canada job markets
           </p>
-          <Link href={"/"} className={cn(buttonVariants(), "w-full md:w-fit")}>
+          <Link
+            href={`${process.env.NEXT_PUBLIC_APP_URL!}/resume-review`}
+            className={cn(buttonVariants(), "w-full md:w-fit")}
+          >
             Chat with a professional
           </Link>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ResumeReview;
+export default ResumeReview

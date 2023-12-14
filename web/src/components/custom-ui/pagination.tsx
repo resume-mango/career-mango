@@ -1,30 +1,39 @@
-"use client";
-import { cn } from "@/lib/utils";
-import React, { useLayoutEffect } from "react";
-import { buttonVariants } from "../ui/button";
-import ReactPaginate from "react-paginate";
-import Icons from "../icons";
-import { useIsMobile } from "@/context/mobile";
+"use client"
+import { cn } from "@/lib/utils"
+import React, { useLayoutEffect } from "react"
+import { buttonVariants } from "../ui/button"
+import ReactPaginate, { ReactPaginateProps } from "react-paginate"
+import Icons from "../icons"
+import { useIsMobile } from "@/context/mobile"
+import { useRouter } from "next/navigation"
 
 const Pagination = ({
+  total,
   currentPage,
-  totalCount,
+  limit,
 }: {
-  currentPage: number;
-  totalCount: number;
+  currentPage: number
+  total: number
+  limit: number
 }) => {
-  const isMobile = useIsMobile();
-
+  const isMobile = useIsMobile()
+  const router = useRouter()
   useLayoutEffect(() => {
-    if (!isMobile) return;
-    const container = document.getElementsByClassName("paginator")[0];
-    const prev = document.getElementsByClassName("prev-btn")[0];
-    const next = document.getElementsByClassName("next-btn")[0];
-    console.log(prev, next);
-    if (!container || !prev || !next) return;
-    container.removeChild(prev);
-    container.insertBefore(prev, next);
-  }, [isMobile]);
+    if (!isMobile) return
+    const container = document.getElementsByClassName("paginator")[0]
+    const prev = document.getElementsByClassName("prev-btn")[0]
+    const next = document.getElementsByClassName("next-btn")[0]
+    if (!container || !prev || !next) return
+    container.removeChild(prev)
+    container.insertBefore(prev, next)
+  }, [isMobile])
+
+  const pageCount = !limit ? 0 : Math.ceil(total / limit)
+
+  const onPageChange: ReactPaginateProps["onPageChange"] = (props) => {
+    router.push(`?page=${props.selected}`)
+  }
+  console.log(total, limit)
 
   return (
     <div>
@@ -42,21 +51,22 @@ const Pagination = ({
                 Next <Icons.arrow className="w-5 h-5" />
               </span>
             }
-            onPageChange={() => console.log("click")}
+            onPageChange={onPageChange}
             pageRangeDisplayed={3}
             marginPagesDisplayed={isMobile ? 1 : 3}
-            pageCount={totalCount}
+            pageCount={pageCount}
             initialPage={currentPage}
             renderOnZeroPageCount={null}
             containerClassName="paginator flex gap-6 items-center w-full flex-wrap justify-center"
             previousClassName={`prev-btn ${isMobile ? "w-[46%]" : "flex-1"}`}
             nextClassName={`next-btn ${isMobile ? "w-[40%]" : "flex-1"}`}
             activeClassName={cn(buttonVariants({ size: "icon" }))}
+            disableInitialCallback={true}
           />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination
