@@ -1,8 +1,9 @@
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
+import configuration from "../../../../config"
 
 const ResumeReviewHero = () => {
   return (
@@ -16,7 +17,10 @@ const ResumeReviewHero = () => {
           review service. Our team of experts will provide comprehensive
           feedback and insights to help you elevate your resume&apos;s impact.
         </p>
-        <Link href={"/"} className={cn(buttonVariants(), "w-full sm:w-fit")}>
+        <Link
+          href={`${configuration.site.appUrl}/resume-review`}
+          className={cn(buttonVariants(), "w-full sm:w-fit")}
+        >
           Get your resume reviewed
         </Link>
       </div>
@@ -30,7 +34,7 @@ const ResumeReviewHero = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ResumeReviewHero;
+export default ResumeReviewHero

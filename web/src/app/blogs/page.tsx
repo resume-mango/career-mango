@@ -70,7 +70,7 @@ const Page = async ({
             explore our blog
           </h1>
           {mainBlog && (
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="grid gap-8 lg:grid-cols-2" key={mainBlog._id}>
               <Link href={`/blogs/${mainBlog.slug}`} passHref>
                 <Image
                   src={mainBlog.image}
@@ -102,7 +102,7 @@ const Page = async ({
           )}
           <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8">
             {rest.map((blog, i) => (
-              <BlogCard key={i} blog={blog} />
+              <BlogCard key={blog._id} blog={blog} />
             ))}
           </div>
           <Pagination

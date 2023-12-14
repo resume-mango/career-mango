@@ -14,12 +14,12 @@ export type HomepageAPIResult = {
       _id: string
       name: string
       thumbnail: string
-    }
+    }[]
     img: {
       _id: string
       name: string
       thumbnail: string
-    }
+    }[]
   }
 }
 

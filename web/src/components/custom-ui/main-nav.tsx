@@ -86,8 +86,8 @@ const MainNav = () => {
   ]
 
   const actionBtns = {
-    login: { name: "Log In", url: process.env.NEXT_PUBLIC_AUTH_URL },
-    signup: { name: "Sign Up Now", url: process.env.NEXT_PUBLIC_AUTH_URL },
+    login: { name: "Log In", url: configuration.links.login },
+    signup: { name: "Sign Up Now", url: configuration.links.signup },
   }
 
   const logo = (

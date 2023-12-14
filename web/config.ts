@@ -7,8 +7,14 @@ const configuration = {
     themeColor: "#EE3F23",
     siteUrl: process.env.NEXT_PUBLIC_WEB_URL,
     apiUrl: process.env.NEXT_PUBLIC_API_URL + "/v1",
+    appUrl: process.env.NEXT_PUBLIC_APP_URL!,
+
     twitterHandle: "",
     language: "en",
+  },
+  links: {
+    login: `${process.env.NEXT_PUBLIC_AUTH_URL}/login`,
+    signup: `${process.env.NEXT_PUBLIC_AUTH_URL}/login?screen=signup`,
   },
   socialLinks: {
     youtube: "",

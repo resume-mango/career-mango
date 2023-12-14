@@ -1,11 +1,12 @@
-"use client";
-import Icons from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
-import { useIsMobile } from "@/context/mobile";
-import { cn } from "@/lib/utils";
-import { TemplateType } from "@/types/templates";
-import Link from "next/link";
-import React from "react";
+"use client"
+import Icons from "@/components/icons"
+import { buttonVariants } from "@/components/ui/button"
+import { useIsMobile } from "@/context/mobile"
+import { cn } from "@/lib/utils"
+import { TemplateType } from "@/types/templates"
+import Link from "next/link"
+import React from "react"
+import configuration from "../../../../../config"
 
 const resumeData = {
   title: "Mastering resume creation: essential tips for success",
@@ -48,7 +49,7 @@ const resumeData = {
       icon: <Icons.edit className="w-6 h-6 stroke-white" />,
     },
   ],
-};
+}
 
 const coverletterData = {
   title: "Mastering the art of cover letters",
@@ -91,17 +92,20 @@ const coverletterData = {
       icon: <Icons.edit className="w-6 h-6 stroke-white" />,
     },
   ],
-};
+}
 
 const TemplateTips = ({ type }: { type: TemplateType }) => {
-  const isMobile = useIsMobile();
-  const curr = type === "resume" ? resumeData : coverletterData;
+  const isMobile = useIsMobile()
+  const curr = type === "resume" ? resumeData : coverletterData
 
   const btn = (
-    <Link href={"/"} className={cn(buttonVariants(), "w-full sm:w-fit")}>
+    <Link
+      href={configuration.links.signup}
+      className={cn(buttonVariants(), "w-full sm:w-fit")}
+    >
       Sign Up Now
     </Link>
-  );
+  )
 
   return (
     <div className="px-6 xl:p-0">
@@ -125,7 +129,7 @@ const TemplateTips = ({ type }: { type: TemplateType }) => {
       </div>
       {isMobile && <div className="mt-10">{btn}</div>}
     </div>
-  );
-};
+  )
+}
 
-export default TemplateTips;
+export default TemplateTips

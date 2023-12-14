@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import Icons from "../icons";
-import Link from "next/link";
-import { buttonVariants } from "../ui/button";
-import { cn } from "@/lib/utils";
+import Image from "next/image"
+import React from "react"
+import Icons from "../icons"
+import Link from "next/link"
+import { buttonVariants } from "../ui/button"
+import { cn } from "@/lib/utils"
 
 const WhyDiffrent = {
   style1: () => {
@@ -12,7 +12,7 @@ const WhyDiffrent = {
       "Review service from top industry standard professionals",
       "No AIs over here. Start with a template, modify it to your needs",
       "It doesn’t stop at resume/cover letter creation. We follow through with your entire job searching process",
-    ];
+    ]
     return (
       <div className="mx-auto max-w-screen-xl px-6">
         <div className="bg-[radial-gradient(810.44%_137.86%_at_98.64%_0%,_#303030_0%,_#1C1C1C_100%)] flex-col-reverse lg:flex-row flex rounded-[30px]">
@@ -42,7 +42,7 @@ const WhyDiffrent = {
           </div>
         </div>
       </div>
-    );
+    )
   },
   style2: ({
     title,
@@ -51,12 +51,17 @@ const WhyDiffrent = {
     image,
     button,
   }: {
-    title: string;
-    description: string;
-    keyPoints: string[];
-    image: string;
-    button: { name: string; url: string };
+    title: string
+    description: string
+    keyPoints: string[]
+    image: string
+    button: { name: string; url: string }
   }) => {
+    const handleScroll = () => {
+      const el = document.getElementById("browse-templates")
+      el && el.scrollIntoView({ behavior: "smooth" })
+    }
+
     return (
       <section className="mx-auto max-w-screen-xl px-4 xl:px-0">
         <div className="bg-[radial-gradient(810.44%_137.86%_at_98.64%_0%,_#303030_0%,_#1C1C1C_100%)] flex flex-col gap-12 py-10 lg:py-0 lg:flex-row rounded-[30px]">
@@ -95,8 +100,8 @@ const WhyDiffrent = {
           </div>
         </div>
       </section>
-    );
+    )
   },
-};
+}
 
-export default WhyDiffrent;
+export default WhyDiffrent

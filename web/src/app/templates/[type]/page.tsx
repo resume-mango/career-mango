@@ -7,6 +7,8 @@ import Reviews from "../../components/reviews"
 import TemplateTips from "./components/tips"
 import Faqs from "@/components/custom-ui/faqs"
 import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
+import { ITemplate, TemplateType } from "@/types/templates"
+import configuration from "../../../../config"
 
 export const generateMetadata = async ({
   params: { type },
@@ -40,50 +42,70 @@ export const generateMetadata = async ({
   }
 }
 
-const Page = ({
+const getData = async (type: TemplateType) => {
+  const res = await fetch(
+    `${configuration.site.apiUrl}/public/templates/${type}`,
+    { next: { revalidate: 15 * 60 } }
+  )
+  if (!res.ok) {
+    throw new Error("Failed to fetch data")
+  }
+
+  return (await res.json()) as ITemplate[]
+}
+
+const Page = async ({
   params: { type },
 }: {
   params: { type: "resume" | "coverletter" }
 }) => {
-  const params = useMemo(() => {
-    if (type === "resume") {
-      return {
-        title: "Take the next step toward your dream career",
-        description:
-          "Don't wait any longer to supercharge your career! Join Career Mango today and gain access to a wealth of resources, expert guidance, and job opportunities. Take the next step towards landing your dream job and achieving professional success. Sign up now and let Career Mango be your trusted partner on your career journey.",
-        image: "/templates/resume-why-diffrent.png",
-        keyPoints: [
-          "Best resume templates",
-          "Proven effectiveness",
-          "Attractive design",
-          "Free forever",
-          "Easy to use",
-        ],
-        button: {
-          url: "/",
-          name: "Browse Templates",
-        },
-      }
-    } else {
-      return {
-        title: "Craft compelling cover letters and stand out from the crowd",
-        description:
-          "Unleash the power of persuasion with expertly written cover letters. learn how to capture hiring managers' attention, showcase your unique value, and secure more job interviews. take your application to the next level with careermango's comprehensive guide to cover letter success. get started today and unlock the door to your dream career.",
-        image: "/templates/coverletter-why-diffrent.png",
-        keyPoints: [
-          "Best cover letter templates",
-          "Proven effectiveness",
-          "Attractive design",
-          "Free forever",
-          "Easy to use",
-        ],
-        button: {
-          url: "/",
-          name: "Browse Templates",
-        },
-      }
-    }
-  }, [type])
+  const data = await getData(type)
+
+  const img: ITemplate[] = []
+  const noImg: ITemplate[] = []
+
+  data.forEach((d) => {
+    d.image ? img.push(d) : noImg.push(d)
+  })
+
+  const params =
+    type === "resume"
+      ? {
+          title: "Take the next step toward your dream career",
+          description:
+            "Don't wait any longer to supercharge your career! Join Career Mango today and gain access to a wealth of resources, expert guidance, and job opportunities. Take the next step towards landing your dream job and achieving professional success. Sign up now and let Career Mango be your trusted partner on your career journey.",
+          image: "/templates/resume-why-diffrent.png",
+          keyPoints: [
+            "Best resume templates",
+            "Proven effectiveness",
+            "Attractive design",
+            "Free forever",
+            "Easy to use",
+          ],
+          button: {
+            url: "#browse-templates",
+            name: "Browse Templates",
+          },
+        }
+      : {
+          title: "Craft compelling cover letters and stand out from the crowd",
+          description:
+            "Unleash the power of persuasion with expertly written cover letters. learn how to capture hiring managers' attention, showcase your unique value, and secure more job interviews. take your application to the next level with careermango's comprehensive guide to cover letter success. get started today and unlock the door to your dream career.",
+          image: "/templates/coverletter-why-diffrent.png",
+          keyPoints: [
+            "Best cover letter templates",
+            "Proven effectiveness",
+            "Attractive design",
+            "Free forever",
+            "Easy to use",
+          ],
+          button: {
+            url: "#browse-templates",
+            name: "Browse Templates",
+          },
+        }
+
+  console.log(data)
 
   return (
     <>
@@ -91,7 +113,9 @@ const Page = ({
       <main>
         <section className="max-w-screen-xl mx-auto my-20 space-y-[140px]">
           <TemplateHero type={type} />
-          <TemplatesList type={type} />
+          <div id="browse-templates">
+            <TemplatesList type={type} templates={{ img, noImg }} />
+          </div>
           <Reviews />
           <TemplateTips type={type} />
           <WhyDiffrent.style2 {...params} />

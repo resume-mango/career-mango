@@ -2,21 +2,73 @@
 import { Button, buttonVariants } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
+import { HomepageAPIResult } from "@/types/blog"
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from "react"
 
-const navLinks = [
-  { name: "Simple", value: "simple" },
-  { name: "Professional", value: "professional" },
-  { name: "Creative", value: "creative" },
-  { name: "With Image", value: "with-image" },
-  { name: "Without Image", value: "without-image" },
-]
+const Templates = ({
+  templates,
+}: {
+  templates: HomepageAPIResult["resumes"]
+}) => {
+  const [category, setCategory] = useState<string>("simple")
 
-const Templates = () => {
-  const [category] = useState(navLinks[0].value)
+  const navLinks = [
+    {
+      name: "Simple",
+      value: "simple",
+      templates: [
+        templates.noImg[0],
+        templates.noImg[3],
+        templates.img[0],
+        templates.img[3],
+      ],
+    },
+    {
+      name: "Professional",
+      value: "professional",
+      templates: [
+        templates.noImg[1],
+        templates.noImg[2],
+        templates.img[1],
+        templates.img[2],
+      ],
+    },
+    {
+      name: "Creative",
+      value: "creative",
+      templates: [
+        templates.img[2],
+        templates.img[1],
+        templates.noImg[0],
+        templates.img[3],
+      ],
+    },
+    {
+      name: "With Image",
+      value: "img",
+      templates: [
+        templates.img[2],
+        templates.img[3],
+        templates.img[4],
+        templates.img[5],
+      ],
+    },
+    {
+      name: "Without Image",
+      value: "noImg",
+      templates: [
+        templates.noImg[2],
+        templates.noImg[3],
+        templates.noImg[4],
+        templates.noImg[5],
+      ],
+    },
+  ]
 
+  const curr = navLinks.find((n) => n.value === category)?.templates
+  if (!curr) return null
   return (
     <div className="mx-auto max-w-screen-xl">
       <h2 className="px-6 xl:p-0 mb-4 max-w-screen-lg">
@@ -47,6 +99,7 @@ const Templates = () => {
                 "cursor-pointer w-fit flex whitespace-nowrap",
                 category === nav.value ? "text-foreground" : "text-gray"
               )}
+              onClick={() => setCategory(nav.value)}
             >
               {nav.name}
             </a>
@@ -55,16 +108,25 @@ const Templates = () => {
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
       <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6 xl:px-0">
-        {[...Array(4)].map((t, i) => (
-          <div key={i} className="space-y-4 md:p-0">
-            <Image
-              src={"/templates/demo.png"}
-              alt="Template"
-              width={400}
-              height={400}
-            />
+        {curr.map((t) => (
+          <div
+            key={category + t._id}
+            className="space-y-4 md:p-0 animate-in fade-in zoom-in-90 duration-300"
+          >
+            <Link
+              href={`${process.env.NEXT_PUBLIC_APP_URL}/resumes/new/${t.name}`}
+              passHref
+            >
+              <Image
+                src={t.thumbnail}
+                alt={t.name}
+                width={400}
+                height={400}
+                className="bg-lightGray/20"
+              />
+            </Link>
             <div>
-              <h4>London</h4>
+              <h4 className="capitalize">{t.name}</h4>
               <p className="text-xs">
                 Classically structured resume template, for a robust career
                 history.
@@ -75,7 +137,7 @@ const Templates = () => {
       </div>
       <div className="flex md:hidden items-center justify-end p-4">
         <Link
-          href={"/"}
+          href={`${process.env.NEXT_PUBLIC_APP_URL!}/resumes/new`}
           className={cn(buttonVariants({ variant: "secondary" }), "w-full")}
         >
           Create resume for free

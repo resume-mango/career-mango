@@ -28,6 +28,7 @@ const getData = async () => {
 }
 export default async function Home() {
   const data = await getData()
+
   return (
     <>
       <MainNav />
@@ -60,7 +61,7 @@ export default async function Home() {
           </div>
         </section>
         <Features />
-        <Templates />
+        <Templates templates={data.resumes} />
         <ResumeReview />
         <WhyDiffrent.style1 />
         <Video />
