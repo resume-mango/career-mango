@@ -18,7 +18,7 @@ const Payments = () => {
 
   return (
     <div className="w-full mx-auto">
-      <h2 className="text-center mb-12">Accepted Payment Platforms</h2>
+      <h2 className="text-center mb-12 px-6">Accepted Payment Platforms</h2>
       {isMobile ? (
         <div className="overflow-hidden gap-y-6 flex flex-col w-full relative">
           <div className="absolute left-0 w-28 h-full xl:bg-gradient-to-r xl:from-background z-10" />

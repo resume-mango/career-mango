@@ -108,9 +108,7 @@ const TemplatesList = ({
       >
         <ScrollArea className={"max-w-fit px-4 xl:px-0 mb-4"}>
           <div
-            className={cn(
-              "h-20 grid grid-flow-col-dense items-center gap-8 md:gap-4"
-            )}
+            className={cn("h-20 grid grid-flow-col-dense items-center gap-4")}
           >
             {navLinks[type].map((nav, i) => (
               <a
