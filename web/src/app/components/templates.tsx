@@ -91,7 +91,7 @@ const Templates = ({
         </div>
       </div>
       <ScrollArea className="max-w-screen-sm mb-6">
-        <div className="grid grid-flow-col-dense items-center gap-2 px-4 xl:p-0 h-10  overflow-y-hidden">
+        <div className="grid grid-flow-col-dense items-center gap-8 md:gap-4 px-4 xl:p-0 h-10 overflow-y-hidden">
           {navLinks.map((nav, i) => (
             <a
               key={i}
