@@ -64,7 +64,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           <span>{data.title}</span>
         </p>
         <div className="">
-          <MainImg />
+          <MainImg url={data.image} title={data.title} />
           <div className="flex flex-col md:flex-row gap-2 md:gap-8 my-10">
             <h2 className="flex-1">
               How to Find the Perfect Internship: A Comprehensive Guide
