@@ -38,10 +38,10 @@ const ResumeReviewSteps = () => {
 
   useEffect(() => {
     let intervalId: any
-    if (!inView || isMobile || stop) setStep(0)
-    intervalId = setInterval(() => {
-      setStep((prevCount) => (prevCount === 2 ? 2 : prevCount + 1))
-    }, 3000)
+    if (!inView || isMobile || stop)
+      intervalId = setInterval(() => {
+        setStep((prevCount) => (prevCount === 2 ? 2 : prevCount + 1))
+      }, 3000)
 
     return () => clearInterval(intervalId) // Cleanup the interval on component unmount
   }, [inView, stop, isMobile])
