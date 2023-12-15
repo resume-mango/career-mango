@@ -38,9 +38,7 @@ const ResumeReviewSteps = () => {
 
   useEffect(() => {
     let intervalId: any
-    if (!inView || isMobile || stop)
-      return intervalId && clearInterval(intervalId)
-    setStep(0)
+    if (!inView || isMobile || stop) setStep(0)
     intervalId = setInterval(() => {
       setStep((prevCount) => (prevCount === 2 ? 2 : prevCount + 1))
     }, 3000)
