@@ -1,8 +1,9 @@
-"use client";
-import { useIsMobile } from "@/context/mobile";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+"use client"
+import { useIsMobile } from "@/context/mobile"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import React, { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
 
 const steps = [
   {
@@ -23,29 +24,47 @@ const steps = [
       "Ask one of our industry professionals to review your resume and give their feedback. Once ready, download your resume in over 3 file formats",
     image: "/resume-review/step-3.png",
   },
-];
+]
 
 const ResumeReviewSteps = () => {
-  const [step, setStep] = useState(0);
-  const isMobile = useIsMobile();
+  const [step, setStep] = useState(0)
+  const [stop, setStop] = useState(false)
+  const isMobile = useIsMobile()
 
-  const total = steps.length;
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  })
+
   useEffect(() => {
-    const first = document.getElementById("step-0");
-    const firstRect = first?.getBoundingClientRect();
+    let intervalId: any
+    if (!inView || isMobile || stop)
+      return intervalId && clearInterval(intervalId)
+    setStep(0)
+    intervalId = setInterval(() => {
+      setStep((prevCount) => (prevCount === 2 ? 2 : prevCount + 1))
+    }, 3000)
+
+    return () => clearInterval(intervalId) // Cleanup the interval on component unmount
+  }, [inView, stop, isMobile])
+
+  const total = steps.length
+  useEffect(() => {
+    const first = document.getElementById("step-0")
+    const firstRect = first?.getBoundingClientRect()
     const lastRect = document
       .getElementById("step-" + (total - 1))
-      ?.getBoundingClientRect();
-    if (!firstRect || !lastRect) return;
+      ?.getBoundingClientRect()
+    if (!firstRect || !lastRect) return
     const distance =
-      (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0);
-    const line = document.getElementById("step-line");
-    if (!line) return;
-    line.style.height = distance + "px";
-  }, [step]);
+      (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0)
+    const line = document.getElementById("step-line")
+    if (!line) return
+    line.style.height = distance + "px"
+  }, [step])
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-20" ref={ref}>
       <div className="space-y-4 max-w-screen-md px-6 xl:p-0">
         <h2>Streamlined resume review: how it works?</h2>
         <p className="max-w-screen-sm">
@@ -86,7 +105,10 @@ const ResumeReviewSteps = () => {
           ))
         ) : (
           <div className="flex justify-center">
-            <div className="flex items-center justify-center">
+            <div
+              className="flex items-center justify-center animate-in fade-in zoom-in-90 duration-300"
+              key={step}
+            >
               <Image
                 src={steps[step].image}
                 alt="steps image"
@@ -99,7 +121,7 @@ const ResumeReviewSteps = () => {
                 <div
                   key={i}
                   className={cn(
-                    "h-full flex",
+                    "h-full flex ",
                     i === 0
                       ? "items-start"
                       : i === total - 1
@@ -134,11 +156,13 @@ const ResumeReviewSteps = () => {
             <div className="flex-1 flex flex-col gap-6">
               {steps.map((s, i) => (
                 <div
-                  className="flex flex-col gap-8 cursor-pointer"
+                  className="flex flex-col gap-8 cursor-pointer "
+                  onMouseEnter={() => setStop(true)}
+                  onMouseLeave={() => setStop(false)}
                   key={i}
                   onClick={() => setStep(i)}
                 >
-                  <div className="px-4 py-6 bg-white rounded-xl w-full">
+                  <div className="px-4 py-6 bg-white rounded-xl w-full animate-in fade-in duration-300">
                     <div className="max-w-sm">
                       <h4 className="text-sm text-secondary">Step {i + 1}</h4>
                       {step === i && (
@@ -156,7 +180,7 @@ const ResumeReviewSteps = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResumeReviewSteps;
+export default ResumeReviewSteps

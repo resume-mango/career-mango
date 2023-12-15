@@ -11,7 +11,7 @@ const MainImg = ({ url, title }: { url: string; title: string }) => {
       <Image
         src={url}
         alt={title}
-        className="overflow-hidden object-cover rounded-2xl"
+        className="overflow-hidden object-cover rounded-2xl bg-lightGray/20"
         fill={true}
       />
     </AspectRatio>
