@@ -69,7 +69,11 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           <div className="flex flex-col md:flex-row gap-2 md:gap-8 my-10">
             <h2 className="flex-1">{data.title}</h2>
             <div className="w-[350px] text-start md:text-end text-gray text-sm font-normal">
-              <p> {format(new Date(data.updatedAt), "dd MMM yyyy")}</p>
+              <p>
+                {" "}
+                {data.updatedAt &&
+                  format(new Date(data.updatedAt), "dd MMM yyyy")}
+              </p>
             </div>
           </div>
         </div>

@@ -1,6 +1,4 @@
 import BlogCard from "@/components/custom-ui/cards/blog"
-import Footer from "@/components/custom-ui/footer"
-import MainNav from "@/components/custom-ui/main-nav"
 import Pagination from "@/components/custom-ui/pagination"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -82,7 +80,8 @@ const Page = async ({
               </Link>
               <div className="space-y-3 flex flex-col">
                 <p className="text-gray text-xs">
-                  {format(new Date(mainBlog.createdAt), "dd MMM yyyy")}
+                  {mainBlog.updatedAt &&
+                    format(new Date(mainBlog.updatedAt), "dd MMM yyyy")}
                 </p>
                 <Link href={`/blogs/${mainBlog.slug}`} passHref>
                   <h3 className="line-clamp-2">{mainBlog.title}</h3>
