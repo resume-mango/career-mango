@@ -107,7 +107,10 @@ const Templates = ({
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <div className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6 xl:px-0">
+      <div
+        id="templates-wrapper"
+        className="grid gap-y-8 md:gap-y-12 gap-x-8 grid-cols-[repeat(auto-fill,minmax(275px,1fr))] px-6 xl:px-0"
+      >
         {curr.map((t) => (
           <div
             key={category + t._id}

@@ -29,7 +29,7 @@ const Blog = ({ blogs }: { blogs: SingleBlogList[] }) => {
   )
 
   return (
-    <section className="mx-auto max-w-screen-xl px-6">
+    <section id="blog-section" className="mx-auto max-w-screen-xl px-6">
       <h2 className="max-w-xl mb-4">
         The Career Mango blog - expert job hunting advice and insights
       </h2>
@@ -62,7 +62,7 @@ const Blog = ({ blogs }: { blogs: SingleBlogList[] }) => {
             ></div>
           </Swiper>
         ) : (
-          <div className="grid grid-cols-3 gap-8">
+          <div id="blog-list" className="grid grid-cols-3 gap-8">
             {blogs.map((blog, i) => (
               <BlogCard key={i} blog={blog} />
             ))}

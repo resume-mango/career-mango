@@ -17,7 +17,7 @@ const BlogCard = ({
   const [loading, setLoading] = useState(true)
   if (!blog) return null
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-testid="blog-card">
       <Link href={`/blogs/${blog.slug}`} passHref>
         <Image
           src={blog.image}

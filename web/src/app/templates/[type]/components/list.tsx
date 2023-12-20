@@ -113,6 +113,7 @@ const TemplatesList = ({
             {navLinks[type].map((nav, i) => (
               <a
                 key={i}
+                title={nav.name}
                 className={cn(
                   "cursor-pointer w-fit p-2 flex whitespace-nowrap font-normal",
                   category === nav.value ? "text-foreground" : "text-gray"
@@ -148,7 +149,7 @@ const TemplatesList = ({
               />
             </Link>
             <div>
-              <h4 className="capitalize">{t.name}</h4>
+              <h4 className="capitalize">{t.friendly_name || t.name}</h4>
               <p className="text-xs">
                 Classically structured resume template, for a robust career
                 history.

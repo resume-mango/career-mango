@@ -109,10 +109,14 @@ const MainNav = () => {
           {logo}
           <SheetTrigger>{gradientMenu}</SheetTrigger>
         </div>
-        <SheetContent side={"left"} hideClose className=" flex flex-col">
+        <SheetContent
+          id="mobile-nav"
+          side={"left"}
+          hideClose
+          className=" flex flex-col"
+        >
           <div className="flex justify-between items-center">
             {logo}
-
             <SheetClose>
               {gradientClose}
               <span className="sr-only">Close</span>

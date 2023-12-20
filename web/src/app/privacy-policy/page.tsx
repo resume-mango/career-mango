@@ -1,15 +1,12 @@
-"use client";
-import Footer from "@/components/custom-ui/footer";
-import MainNav from "@/components/custom-ui/main-nav";
-import { useViewport } from "@/context/viewport";
-import Link from "next/link";
-import React, { Fragment, useEffect, useRef, useState } from "react";
-import "../article.css";
-import { cn } from "@/lib/utils";
-import useScroll from "@/hooks/scroll";
-import debounce from "debounce";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { useIsMobile } from "@/context/mobile";
+"use client"
+import Footer from "@/components/custom-ui/footer"
+import MainNav from "@/components/custom-ui/main-nav"
+
+import React, { Fragment, useEffect, useRef, useState } from "react"
+import "../article.css"
+import { cn } from "@/lib/utils"
+import useScroll from "@/hooks/scroll"
+
 const navItems = [
   "Whats information do we collect?",
   "Data usage",
@@ -20,92 +17,92 @@ const navItems = [
   "CASL",
   "Changes to this policy",
   "Contact information",
-];
+]
 
 const TermsConditions = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(0)
 
-  const [cooldown, setCooldown] = useState(false);
+  const [cooldown, setCooldown] = useState(false)
 
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  const { scrollDirection } = useScroll();
+  const elementRef = useRef<HTMLDivElement | null>(null)
+  const { scrollDirection } = useScroll()
 
-  const total = navItems.length;
+  const total = navItems.length
 
   useEffect(() => {
-    const first = document.getElementById("step-0");
-    const firstRect = first?.getBoundingClientRect();
+    const first = document.getElementById("step-0")
+    const firstRect = first?.getBoundingClientRect()
     const lastRect = document
       .getElementById("step-" + (total - 1))
-      ?.getBoundingClientRect();
-    if (!firstRect || !lastRect) return;
+      ?.getBoundingClientRect()
+    if (!firstRect || !lastRect) return
     const distance =
-      (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0);
-    const line = document.getElementById("step-line");
-    if (!line) return;
-    line.style.height = distance + "px";
-  }, []);
+      (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0)
+    const line = document.getElementById("step-line")
+    if (!line) return
+    line.style.height = distance + "px"
+  }, [])
 
   useEffect(() => {
-    const container = document.getElementById("scroll-area");
-    if (!container) return;
-    const el = document.getElementById("step-" + step);
-    if (!el) return;
+    const container = document.getElementById("scroll-area")
+    if (!container) return
+    const el = document.getElementById("step-" + step)
+    if (!el) return
     container.scrollTo({
       top: el.offsetTop - 100,
       behavior: "smooth",
-    });
-  }, [step]);
+    })
+  }, [step])
 
   const classNames = [...Array.from({ length: total })].map(
     (_, i) => `#nav-item-${i}`
-  );
+  )
 
   const handleIntersection: IntersectionObserverCallback = (entries) => {
-    console.log(cooldown ? 1 : 0);
+    console.log(cooldown ? 1 : 0)
     if (cooldown) {
-      return setCooldown(false);
+      return setCooldown(false)
     }
 
     entries.forEach((entry) => {
-      const list = scrollDirection === "up" ? classNames.reverse() : classNames;
-      const index = list.indexOf("#" + entry.target.id);
+      const list = scrollDirection === "up" ? classNames.reverse() : classNames
+      const index = list.indexOf("#" + entry.target.id)
       if (entry.isIntersecting) {
-        setStep(index); // 1-based index
+        setStep(index) // 1-based index
       }
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    const headingRefs = document.querySelectorAll(classNames.join(", "));
+    const headingRefs = document.querySelectorAll(classNames.join(", "))
     // Create a new IntersectionObserver
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
       threshold: 0.5, // Adjust the threshold as needed
-    });
+    })
 
     // Observe each heading element
     headingRefs.forEach((headingRef) => {
       if (headingRef) {
-        observer.observe(headingRef);
+        observer.observe(headingRef)
       }
-    });
+    })
 
     // Cleanup the observer when the component unmounts
     return () => {
-      observer.disconnect();
-    };
-  }, []);
+      observer.disconnect()
+    }
+  }, [])
 
   const handleNav = (idx: number) => {
-    const el = document.getElementById(`nav-item-${idx}`);
-    window.focus();
-    if (!el) return;
-    setCooldown(true);
-    window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
-    setStep(idx);
-  };
+    const el = document.getElementById(`nav-item-${idx}`)
+    window.focus()
+    if (!el) return
+    setCooldown(true)
+    window.scrollTo({ top: el.offsetTop, behavior: "smooth" })
+    setStep(idx)
+  }
 
   return (
     <Fragment>
@@ -536,6 +533,6 @@ const TermsConditions = () => {
 
       <Footer />
     </Fragment>
-  );
-};
-export default TermsConditions;
+  )
+}
+export default TermsConditions

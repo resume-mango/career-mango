@@ -33,7 +33,6 @@ const Pagination = ({
   const onPageChange: ReactPaginateProps["onPageChange"] = (props) => {
     router.push(`?page=${props.selected}`)
   }
-  console.log(total, limit)
 
   return (
     <div>

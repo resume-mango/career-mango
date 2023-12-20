@@ -1,10 +1,10 @@
-"use client";
-import { useIsMobile } from "@/context/mobile";
-import React from "react";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
+"use client"
+import { useIsMobile } from "@/context/mobile"
+import React from "react"
+import { Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/pagination"
 
 const reviews = [
   {
@@ -29,7 +29,7 @@ const reviews = [
     customer: "Rodrigo M.",
     ratings: 5,
   },
-];
+]
 
 const fiveStar = [...Array(5)].map((_, i) => (
   <svg
@@ -46,21 +46,21 @@ const fiveStar = [...Array(5)].map((_, i) => (
       fill="#F6D604"
     />
   </svg>
-));
+))
 
 const Single = ({ review }: { review: (typeof reviews)[0] }) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" data-testid="testimonial">
       <div className="flex space-x-1">{fiveStar}</div>
       <h4>{review.title}</h4>
       <p>{review.description}</p>
       <p className="text-gray">{review.customer}</p>
     </div>
-  );
-};
+  )
+}
 
 const Reviews = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile()
   return (
     <div className="space-y-12 px-6 xl:p-0">
       <h2 className="max-w-2xl">
@@ -98,7 +98,7 @@ const Reviews = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Reviews;
+export default Reviews

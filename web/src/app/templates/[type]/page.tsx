@@ -105,8 +105,6 @@ const Page = async ({
           },
         }
 
-  console.log(data)
-
   return (
     <>
       <MainNav />

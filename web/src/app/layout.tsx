@@ -61,7 +61,9 @@ export default function RootLayout(props: any) {
       <SsrMobileProvider value={isMobile}>
         <ViewportProvider>
           <body
-            className={`${merchant.variable} ${outfit.variable} ${outfit.className}`}
+            className={`${merchant.variable} ${outfit.variable} ${
+              outfit.className
+            } ${isMobile && "is-mobile"}`}
           >
             {props.children}
           </body>

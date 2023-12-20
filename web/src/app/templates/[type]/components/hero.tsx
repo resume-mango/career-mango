@@ -4,21 +4,21 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import React from "react"
 
-const TemplateHero = ({ type }: { type: "resume" | "coverletter" }) => {
-  const data = {
-    resume: {
-      title: "Stand out with these Top-Notch Resume Templates",
-      desc: "These resume templates give you the confidence and edge necessary to catch your recruiters’ attention by standing out. Check out these professionally designed templates and get started now.",
-      image: "/templates/resume-hero.png",
-    },
-    coverletter: {
-      title: "The fastest way to create job Cover Letters",
-      desc: "Proven cover letter templates to get you noticed by job recruiters. Apply to your ideal job now with these easy to use, professional designs",
-      image: "/templates/coverletter-hero.png",
-    },
-  }
+export const templateData = {
+  resume: {
+    title: "Stand out with these Top-Notch Resume Templates",
+    desc: "These resume templates give you the confidence and edge necessary to catch your recruiters’ attention by standing out. Check out these professionally designed templates and get started now.",
+    image: "/templates/resume-hero.png",
+  },
+  coverletter: {
+    title: "The fastest way to create job Cover Letters",
+    desc: "Proven cover letter templates to get you noticed by job recruiters. Apply to your ideal job now with these easy to use, professional designs",
+    image: "/templates/coverletter-hero.png",
+  },
+}
 
-  const curr = data[type]
+const TemplateHero = ({ type }: { type: "resume" | "coverletter" }) => {
+  const curr = templateData[type]
 
   if (!curr) return null
 

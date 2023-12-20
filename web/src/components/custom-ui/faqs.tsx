@@ -44,9 +44,9 @@ const Faqs = () => {
         </p>
       </div>
       <div className="max-w-screen-md mx-auto">
-        <Accordion type="single" collapsible className="space-y-6">
+        <Accordion id="faqs" type="single" collapsible className="space-y-6">
           {faqsData.map((faq, i) => (
-            <AccordionItem value={`keu-${i}`} key={i}>
+            <AccordionItem id={`faq-${i}`} value={`key-${i}`} key={i}>
               <AccordionTrigger>{faq.title} </AccordionTrigger>
               <AccordionContent>{faq.description}</AccordionContent>
             </AccordionItem>
