@@ -18,7 +18,7 @@ test("MainNav renders correctly on mobile", async ({ browser }) => {
 
   // Click on the mobile navigation trigger
   await sheetTrigger?.click()
-
+  await page.waitForSelector("#mobile-nav")
   // Check if the mobile navigation content is visible
   const sheetContent = page.locator("#mobile-nav")
   expect(sheetContent).not.toBeNull()
@@ -36,9 +36,7 @@ test("MainNav renders correctly on mobile", async ({ browser }) => {
   const signin = sheetContent.getByText("Sign Up Now")
   expect(signin).not.toBeNull()
 
-  const signinHref = await signin.evaluate((button) => {
-    return button.getAttribute("href")
-  })
+  const signinHref = await signin.getAttribute("href")
   expect(signinHref).toEqual(
     process.env.NEXT_PUBLIC_AUTH_URL + "/login?screen=signup"
   )

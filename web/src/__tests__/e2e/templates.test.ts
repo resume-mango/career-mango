@@ -9,13 +9,15 @@ test("Should render resume template", async ({ page }) => {
   await page.getByRole("link", { name: "Browse Templates" }).click()
   expect(page.getByAltText("Resume Image")).toBeVisible()
 
-  const el = page.getByText("Template2")
+  const el = page.getByRole("heading", { name: "Classic", exact: true })
   expect(el).toBeVisible()
   await page.getByTitle("Professional").click()
 
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(5000)
   expect(el).not.toBeVisible()
-  expect(page.getByText("Template3")).toBeVisible()
+  expect(
+    page.getByRole("heading", { name: "Fresh", exact: true })
+  ).toBeVisible()
 })
 
 test("Should render coverletter template", async ({ page }) => {
@@ -25,13 +27,15 @@ test("Should render coverletter template", async ({ page }) => {
   await page.getByRole("link", { name: "Browse Templates" }).click()
   expect(page.getByAltText("Coverletter Image")).toBeVisible()
 
-  const el = page.getByText("Template1")
+  const el = page.getByRole("heading", { name: "Swift", exact: true })
   expect(el).toBeVisible()
   await page.getByTitle("Professional").click()
 
   await page.waitForTimeout(1000)
   expect(el).not.toBeVisible()
-  expect(page.getByText("Template7")).toBeVisible()
+  expect(
+    page.getByRole("heading", { name: "Urban", exact: true })
+  ).toBeVisible()
 })
 
 test("Should render common components", async ({ page }) => {

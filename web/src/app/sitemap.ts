@@ -29,7 +29,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Blogs
-  console.log({ configuration })
   const data = await getData()
   const blogs = data.items.map((post) => ({
     url: `${configuration.site.siteUrl}/blogs/${post.slug}`,
