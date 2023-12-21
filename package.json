@@ -16,9 +16,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/react": "^14.1.2",
+    "@vitejs/plugin-react": "^4.2.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "semantic-release": "^22.0.10"
+    "jsdom": "^23.0.1",
+    "semantic-release": "^22.0.10",
+    "vitest": "^1.0.4"
   },
   "dependencies": {
     "react-intersection-observer": "^9.5.3"
