@@ -1,5 +1,5 @@
 import { test, expect } from "playwright/test"
-import configuration from "../../../config"
+import configuration from "../../config"
 
 test("ResumeReviewHero component renders correctly", async ({ page }) => {
   // Navigate to the page or component URL

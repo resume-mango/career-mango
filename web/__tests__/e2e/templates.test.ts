@@ -1,6 +1,6 @@
 import { templateData } from "@/app/templates/[type]/components/hero"
 import { test, expect } from "playwright/test"
-import configuration from "../../../config"
+import configuration from "../../config"
 
 test("Should render resume template", async ({ page }) => {
   await page.goto("/templates/resume")

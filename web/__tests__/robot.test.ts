@@ -1,6 +1,6 @@
 import robots from "@/app/robots"
 import { expect, test, describe } from "vitest"
-import configuration from "../../config"
+import configuration from "../config"
 
 describe("robots", () => {
   test("should generate the robots.txt content correctly", () => {

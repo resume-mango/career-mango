@@ -1,6 +1,6 @@
 import sitemap from "@/app/sitemap"
 import { expect, test, vi, describe, beforeEach } from "vitest"
-import configuration from "../../config"
+import configuration from "../config"
 
 // vi.mock("node-fetch", async () => {
 //     const actual = await vi.importActual("node-fetch");
