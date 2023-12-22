@@ -6,6 +6,7 @@ import { getIsSsrMobile } from "@/hooks/isMobile"
 import { SsrMobileProvider } from "@/context/mobile"
 import { ViewportProvider } from "@/context/viewport"
 import configuration from "../../config"
+import Script from "next/script"
 
 export const merchant = localFont({
   src: [
@@ -58,6 +59,22 @@ export default function RootLayout(props: any) {
   const isMobile = getIsSsrMobile()
   return (
     <html lang="en">
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MESUREMENT_ID}`}
+      />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_MESUREMENT_ID}',{
+            page_path: window.location.pathname,
+            cookie_domain:'auto'
+          });
+        `}
+      </Script>
+
       <SsrMobileProvider value={isMobile}>
         <ViewportProvider>
           <body

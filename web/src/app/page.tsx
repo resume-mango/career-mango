@@ -69,6 +69,7 @@ export default async function Home() {
         <Blog blogs={data.blogs} />
         <Faqs />
       </main>
+
       <Footer />
     </>
   )
