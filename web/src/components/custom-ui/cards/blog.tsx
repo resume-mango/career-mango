@@ -18,7 +18,12 @@ const BlogCard = ({
   if (!blog) return null
   return (
     <div className="space-y-3" data-testid="blog-card">
-      <Link href={`/blogs/${blog.slug}`} passHref title={blog.title}>
+      <Link
+        href={`/blogs/${blog.slug}`}
+        passHref
+        title={blog.title}
+        className="hover:text-current"
+      >
         <Image
           src={blog.image}
           alt={blog.title}
@@ -30,7 +35,7 @@ const BlogCard = ({
           )}
           onLoad={() => setLoading(false)}
         />
-        <p className="text-gray text-xs">
+        <p className="text-gray text-xs hover mt-2">
           {blog.updatedAt && format(new Date(blog.updatedAt), "dd MMM yyyy")}
         </p>
         <span>
