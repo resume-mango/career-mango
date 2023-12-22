@@ -30,27 +30,25 @@ const BlogCard = ({
           )}
           onLoad={() => setLoading(false)}
         />
-      </Link>
-      <p className="text-gray text-xs">
-        {blog.updatedAt && format(new Date(blog.updatedAt), "dd MMM yyyy")}
-      </p>
-      <Link href={"/blogs/id"} passHref title={blog.title}>
-        {readMore ? (
-          <h4 className="line-clamp-2">{blog.title}</h4>
-        ) : (
-          <h3 className="line-clamp-2">{blog.title}</h3>
-        )}
-      </Link>
-      {!readMore && <p className="line-clamp-2">{blog.short_description}</p>}
-      <Link
-        href={`/blogs/${blog.slug}`}
-        title={blog.title}
-        className={cn(
-          buttonVariants({ variant: "link", size: "link" }),
-          "mt-6"
-        )}
-      >
-        Read more
+        <p className="text-gray text-xs">
+          {blog.updatedAt && format(new Date(blog.updatedAt), "dd MMM yyyy")}
+        </p>
+        <span>
+          {readMore ? (
+            <h4 className="line-clamp-2">{blog.title}</h4>
+          ) : (
+            <h3 className="line-clamp-2">{blog.title}</h3>
+          )}
+        </span>
+        {!readMore && <p className="line-clamp-2">{blog.short_description}</p>}
+        <span
+          className={cn(
+            buttonVariants({ variant: "link", size: "link" }),
+            "mt-6"
+          )}
+        >
+          Read more
+        </span>
       </Link>
     </div>
   )
