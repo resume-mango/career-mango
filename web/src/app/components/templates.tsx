@@ -93,7 +93,7 @@ const Templates = ({
       <ScrollArea className="max-w-screen-sm mb-6">
         <div className="grid grid-flow-col-dense items-center gap-8 md:gap-4 px-4 xl:p-0 h-10 overflow-y-hidden">
           {navLinks.map((nav, i) => (
-            <a
+            <span
               key={i}
               className={cn(
                 "cursor-pointer w-fit flex whitespace-nowrap",
@@ -102,7 +102,7 @@ const Templates = ({
               onClick={() => setCategory(nav.value)}
             >
               {nav.name}
-            </a>
+            </span>
           ))}
         </div>
         <ScrollBar orientation="horizontal" />
@@ -129,7 +129,7 @@ const Templates = ({
               />
             </Link>
             <div>
-              <h4 className="capitalize">{t.name}</h4>
+              <h4 className="capitalize">{t.friendly_name || t.name}</h4>
               <p className="text-xs">
                 Classically structured resume template, for a robust career
                 history.

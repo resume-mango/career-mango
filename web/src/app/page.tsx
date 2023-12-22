@@ -1,20 +1,24 @@
 import MainNav from "@/components/custom-ui/main-nav"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import dynamic from "next/dynamic"
 
 import Image from "next/image"
 import Features from "./components/features"
-import Templates from "./components/templates"
-import ResumeReview from "./components/resumeReview"
-import Video from "./components/video"
-import Journery from "./components/journery"
-import Blog from "./components/blog"
-import Faqs from "../components/custom-ui/faqs"
-import Footer from "@/components/custom-ui/footer"
-import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import configuration from "../../config"
 import { HomepageAPIResult } from "@/types/blog"
+import WhyDiffrent from "@/components/custom-ui/whyDiffrent"
+
+const Templates = dynamic(() => import("./components/templates"))
+const ResumeReview = dynamic(() => import("./components/resumeReview"))
+const Video = dynamic(() => import("./components/video"))
+const Journery = dynamic(() => import("./components/journery"))
+const Blog = dynamic(() => import("./components/blog"))
+const Faqs = dynamic(() => import("../components/custom-ui/faqs"))
+
+const Footer = dynamic(() => import("@/components/custom-ui/footer"))
+
 const getData = async () => {
   const res = await fetch(`${configuration.site.apiUrl}/public/home`, {
     next: { revalidate: 15 * 60 },
@@ -61,12 +65,12 @@ export default async function Home() {
           </div>
         </section>
         <Features />
-        <Templates templates={data.resumes} />
+        {/* <Templates templates={data.resumes} /> */}
         <ResumeReview />
         <WhyDiffrent.style1 />
         <Video />
         <Journery />
-        <Blog blogs={data.blogs} />
+        {/* <Blog blogs={data.blogs} /> */}
         <Faqs />
       </main>
 

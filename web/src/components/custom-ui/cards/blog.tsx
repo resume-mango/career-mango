@@ -18,7 +18,7 @@ const BlogCard = ({
   if (!blog) return null
   return (
     <div className="space-y-3" data-testid="blog-card">
-      <Link href={`/blogs/${blog.slug}`} passHref>
+      <Link href={`/blogs/${blog.slug}`} passHref title={blog.title}>
         <Image
           src={blog.image}
           alt={blog.title}
@@ -34,7 +34,7 @@ const BlogCard = ({
       <p className="text-gray text-xs">
         {blog.updatedAt && format(new Date(blog.updatedAt), "dd MMM yyyy")}
       </p>
-      <Link href={"/blogs/id"} passHref>
+      <Link href={"/blogs/id"} passHref title={blog.title}>
         {readMore ? (
           <h4 className="line-clamp-2">{blog.title}</h4>
         ) : (
@@ -44,6 +44,7 @@ const BlogCard = ({
       {!readMore && <p className="line-clamp-2">{blog.short_description}</p>}
       <Link
         href={`/blogs/${blog.slug}`}
+        title={blog.title}
         className={cn(
           buttonVariants({ variant: "link", size: "link" }),
           "mt-6"

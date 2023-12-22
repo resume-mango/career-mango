@@ -107,7 +107,7 @@ const MainNav = () => {
       <Sheet>
         <div className="flex justify-between items-center w-screen p-6">
           {logo}
-          <SheetTrigger>{gradientMenu}</SheetTrigger>
+          <SheetTrigger title="Menu">{gradientMenu}</SheetTrigger>
         </div>
         <SheetContent
           id="mobile-nav"

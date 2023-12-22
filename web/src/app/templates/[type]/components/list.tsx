@@ -111,7 +111,7 @@ const TemplatesList = ({
             className={cn("h-20 grid grid-flow-col-dense items-center gap-4")}
           >
             {navLinks[type].map((nav, i) => (
-              <a
+              <span
                 key={i}
                 title={nav.name}
                 className={cn(
@@ -121,7 +121,7 @@ const TemplatesList = ({
                 onClick={() => setCategory(nav.value)}
               >
                 {nav.name}
-              </a>
+              </span>
             ))}
           </div>
 

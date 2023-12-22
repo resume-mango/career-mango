@@ -59,7 +59,6 @@ const TermsConditions = () => {
   )
 
   const handleIntersection: IntersectionObserverCallback = (entries) => {
-    console.log(cooldown ? 1 : 0)
     if (cooldown) {
       return setCooldown(false)
     }
