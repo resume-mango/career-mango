@@ -13,6 +13,8 @@ import Video from "./components/video"
 import Journery from "./components/journery"
 import Faqs from "@/components/custom-ui/faqs"
 import Footer from "@/components/custom-ui/footer"
+import Templates from "./components/templates"
+import Blog from "./components/blog"
 
 const getData = async () => {
   const res = await fetch(`${configuration.site.apiUrl}/public/home`, {
@@ -60,12 +62,12 @@ export default async function Home() {
           </div>
         </section>
         <Features />
-        {/* <Templates templates={data.resumes} /> */}
+        <Templates templates={data.resumes} />
         <ResumeReview />
         <WhyDiffrent.style1 />
         <Video />
         <Journery />
-        {/* <Blog blogs={data.blogs} /> */}
+        <Blog blogs={data.blogs} />
         <Faqs />
       </main>
 
