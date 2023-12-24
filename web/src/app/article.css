@@ -4,6 +4,11 @@ article h3,
 article h4 {
   @apply mb-3;
 }
+
+article a {
+  @apply underline;
+}
+
 article p:not(:last-child) {
   @apply mb-8;
 }
