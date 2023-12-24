@@ -134,7 +134,7 @@ const Plan = ({ plan, idx }: { plan: IPlan; idx: number }) => {
               <div
                 className={cn(
                   "w-9 h-9 flex items-center justify-center rounded-full [&>svg]:w-4 [&>svg]:h-4 [&>svg]:stroke-white",
-                  !currFeatures || currFeatures.includes(f.title)
+                  currFeatures.length === 0 || currFeatures.includes(f.title)
                     ? "bg-secondary"
                     : "bg-lightGray"
                 )}
