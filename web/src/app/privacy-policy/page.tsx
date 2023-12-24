@@ -324,7 +324,7 @@ const TermsConditions = () => {
                     performance of checks.
                   </li>
                   <li>
-                    Career Mango use and transfer to any other app of
+                    Career Mango&apos;s use and transfer to any other app of
                     information received from Google APIs will adhere to{" "}
                     <a
                       href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes"
