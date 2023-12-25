@@ -32,7 +32,7 @@ export const generateMetadata = async () => {
   }
 }
 
-const limit = 3
+const limit = 30
 
 const getData = async (page: number | undefined) => {
   const res = await fetch(
@@ -47,7 +47,6 @@ const getData = async (page: number | undefined) => {
 
   return (await res.json()) as AllBlogs
 }
-
 const Page = async ({
   searchParams: { page },
 }: {
@@ -75,7 +74,7 @@ const Page = async ({
                   alt={mainBlog.title}
                   width={630}
                   height={300}
-                  className="object-cover object-center overflow-hidden h-[300px] rounded-xl bg-lightGray/30"
+                  className="object-cover object-center overflow-hidden h-[90%] rounded-xl bg-lightGray/30"
                 />
               </Link>
               <div className="space-y-3 flex flex-col">
@@ -99,7 +98,7 @@ const Page = async ({
               </div>
             </div>
           )}
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-x-8 gap-y-16">
             {rest.map((blog, i) => (
               <BlogCard key={blog._id} blog={blog} />
             ))}

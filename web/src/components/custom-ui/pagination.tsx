@@ -24,11 +24,17 @@ const Pagination = ({
     const prev = document.getElementsByClassName("prev-btn")[0]
     const next = document.getElementsByClassName("next-btn")[0]
     if (!container || !prev || !next) return
-    container.removeChild(prev)
-    container.insertBefore(prev, next)
+
+    const wrapper = document.createElement("div")
+    wrapper.className = "flex justify-between w-100"
+    container.append(wrapper)
+    wrapper.append(prev)
+    wrapper.append(next)
   }, [isMobile])
 
-  const pageCount = !limit ? 0 : Math.ceil(total / limit)
+  const pageCount = Math.ceil(total / limit)
+
+  if (pageCount <= 1) return
 
   const onPageChange: ReactPaginateProps["onPageChange"] = (props) => {
     router.push(`?page=${props.selected}`)
