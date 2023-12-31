@@ -30,7 +30,7 @@ const Faqs = () => {
     {
       title: "How do I get in contact with CareerMango?",
       description:
-        "Please contact support@resumemango.com for any questions you may have.",
+        "Please contact support@careermango.co for any questions you may have.",
     },
   ]
 

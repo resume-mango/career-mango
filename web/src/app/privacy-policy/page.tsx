@@ -480,7 +480,7 @@ const TermsConditions = () => {
                   </li>
                   <li>
                     At any point in time, the recipient may ‘unsubscribe’ from
-                    receiving our CEMs by emailing: support@resumemango.com and
+                    receiving our CEMs by emailing: support@careermango.co and
                     indicating ‘Unsubscribe’ in the subject line.
                   </li>
                   <li>
@@ -521,7 +521,7 @@ const TermsConditions = () => {
                     provided by the Company which is located at 5962 Victoria
                     Street, Peachland, BC, V0H1X4, Canada. You can contact us by
                     sending letters or you may even contact us at our email
-                    address at support@resumemango.com
+                    address at support@careermango.co
                   </li>
                   <p>
                     <b>Business Address :</b>&nbsp;5962 Victoria Street,
