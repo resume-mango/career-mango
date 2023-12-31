@@ -1,48 +1,48 @@
-"use client";
-import { useIsMobile } from "@/context/mobile";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import React, { useEffect } from "react";
+"use client"
+import { useIsMobile } from "@/context/mobile"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import React, { useEffect } from "react"
 
 const steps = [
   "Found CareerMango and created a stellar resume",
   "Took a live class and career advices",
   "Landed a job with a tech firm in Vancouver!",
-];
+]
 
 const Journery = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile()
 
-  const total = 3;
+  const total = 3
 
   useEffect(() => {
-    const first = document.getElementById("journey-0");
-    const firstRect = first?.getBoundingClientRect();
+    const first = document.getElementById("journey-0")
+    const firstRect = first?.getBoundingClientRect()
     const lastRect = document
       .getElementById("journey-" + (total - 1))
-      ?.getBoundingClientRect();
-    if (!firstRect || !lastRect) return;
+      ?.getBoundingClientRect()
+    if (!firstRect || !lastRect) return
     if (!isMobile) {
       const distance =
-        (lastRect?.left - firstRect?.left || 0) - (first?.offsetWidth || 0);
-      const line = document.getElementById("journey-line");
-      if (!line) return;
-      line.style.width = distance + "px";
+        (lastRect?.left - firstRect?.left || 0) - (first?.offsetWidth || 0)
+      const line = document.getElementById("journey-line")
+      if (!line) return
+      line.style.width = distance + "px"
     } else {
       const distance =
-        (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0);
-      const line = document.getElementById("journey-line");
-      if (!line) return;
-      line.style.height = distance + "px";
+        (lastRect?.top - firstRect?.top || 0) - (first?.offsetHeight || 0)
+      const line = document.getElementById("journey-line")
+      if (!line) return
+      line.style.height = distance + "px"
     }
-  }, []);
+  }, [])
 
   return (
     <section className="mx-auto max-w-screen-xl space-y-8 lg:space-y-16">
       <div className="flex flex-col lg:flex-row items-center gap-16">
         <div className="lg:w-1/2 px-6">
           <h2 className="mb-4 lg:mb-8">
-            Walkthrough Harpreet’s Career Mango Journey
+            Walkthrough Harpreet’s CareerMango Journey
           </h2>
           <div className="space-y-2">
             <p>
@@ -103,7 +103,7 @@ const Journery = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Journery;
+export default Journery

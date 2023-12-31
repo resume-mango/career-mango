@@ -14,7 +14,7 @@ test("Faqs component renders correctly and handles accordion interactions", asyn
   const heading = await faqsSection?.$("div.md\\:text-center h2")
   expect(heading).not.toBeNull()
   const headingText = await heading?.innerText()
-  expect(headingText).toBe("Career Mango FAQ - your questions answered")
+  expect(headingText).toBe("CareerMango FAQ - your questions answered")
 
   // Check if the paragraph is present and has the correct text
   const paragraph = await faqsSection?.$("div.md\\:text-center p")

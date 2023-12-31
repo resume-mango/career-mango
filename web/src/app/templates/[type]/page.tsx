@@ -73,7 +73,7 @@ const Page = async ({
       ? {
           title: "Take the next step toward your dream career",
           description:
-            "Don't wait any longer to supercharge your career! Join Career Mango today and gain access to a wealth of resources, expert guidance, and job opportunities. Take the next step towards landing your dream job and achieving professional success. Sign up now and let Career Mango be your trusted partner on your career journey.",
+            "Don't wait any longer to supercharge your career! Join CareerMango today and gain access to a wealth of resources, expert guidance, and job opportunities. Take the next step towards landing your dream job and achieving professional success. Sign up now and let CareerMango be your trusted partner on your career journey.",
           image: "/templates/resume-why-diffrent.png",
           keyPoints: [
             "Best resume templates",

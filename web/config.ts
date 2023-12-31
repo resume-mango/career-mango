@@ -1,7 +1,7 @@
 const configuration = {
   site: {
-    name: "Career Mango",
-    title: "Career Mango | Bringing all your Job Hunting needs in one place.",
+    name: "CareerMango",
+    title: "CareerMango | Bringing all your Job Hunting needs in one place.",
     description:
       "We offer Resume Reviews, Interview Prep & Career Advice from highly educated industry leaders with 10+ years of HR and recruiting experience",
     themeColor: "#EE3F23",

@@ -31,7 +31,7 @@ const Blog = ({ blogs }: { blogs: SingleBlogList[] }) => {
   return (
     <section id="blog-section" className="mx-auto max-w-screen-xl px-6">
       <h2 className="max-w-xl mb-4">
-        The Career Mango blog - expert job hunting advice and insights
+        The CareerMango blog - expert job hunting advice and insights
       </h2>
       <div className="flex items-center justify-between mb-16">
         <p className="max-w-2xl">

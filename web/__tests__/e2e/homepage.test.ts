@@ -172,7 +172,7 @@ test.describe("Homepage", async () => {
     const heading = await journeySection?.$("h2")
     expect(heading).not.toBeNull()
     const headingText = await heading?.innerText()
-    expect(headingText).toBe("Walkthrough Harpreet’s Career Mango Journey")
+    expect(headingText).toBe("Walkthrough Harpreet’s CareerMango Journey")
 
     // Check if the paragraphs are present and have the correct text
     const paragraphs = await journeySection?.$$("div > div > p")
@@ -214,7 +214,7 @@ test.describe("Homepage", async () => {
     expect(heading).not.toBeNull()
     const headingText = await heading?.innerText()
     expect(headingText).toBe(
-      "The Career Mango blog - expert job hunting advice and insights"
+      "The CareerMango blog - expert job hunting advice and insights"
     )
 
     // Check if the paragraph is present and has the correct text
