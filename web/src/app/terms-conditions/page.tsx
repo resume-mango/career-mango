@@ -298,8 +298,8 @@ const TermsConditions = () => {
                   Generally, no refunds are issued after an order has been
                   placed. If you are unhappy with our services please
                   contact&nbsp;
-                  <Link href="mailto:support@careermango.co">
-                    support@careermango.co
+                  <Link href="mailto:support@careermango.io">
+                    support@careermango.io
                   </Link>
                   &nbsp;and we will provide assistance.
                 </li>
@@ -862,8 +862,8 @@ const TermsConditions = () => {
               <div style={{ paddingLeft: "1.5rem" }}>
                 <p>Our contact details are:</p>
                 <p>
-                  <Link href={"mailto:support@careermango.co"}>
-                    support@careermango.co
+                  <Link href={"mailto:support@careermango.io"}>
+                    support@careermango.io
                   </Link>
                 </p>
                 <p>

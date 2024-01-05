@@ -24,7 +24,7 @@ const configuration = {
     linkedin: "https://www.linkedin.com/company/resumemango",
   },
   support: {
-    email: "support@careermango.co",
+    email: "support@careermango.io",
   },
 }
 
