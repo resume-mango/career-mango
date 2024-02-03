@@ -8,6 +8,7 @@ import React from "react"
 import configuration from "../../../config"
 import { AllBlogs } from "@/types/blog"
 import format from "date-fns/format"
+import MainImg from "./components/mainImg"
 
 export const generateMetadata = async () => {
   const metadata = {
@@ -69,13 +70,7 @@ const Page = async ({
           {mainBlog && (
             <div className="grid gap-8 lg:grid-cols-2" key={mainBlog._id}>
               <Link href={`/blogs/${mainBlog.slug}`} passHref>
-                <Image
-                  src={mainBlog.image}
-                  alt={mainBlog.title}
-                  width={630}
-                  height={300}
-                  className="object-cover object-center overflow-hidden h-[90%] rounded-xl bg-lightGray/30"
-                />
+                <MainImg url={mainBlog.image} title={mainBlog.title} />
               </Link>
               <div className="space-y-3 flex flex-col">
                 <p className="text-gray text-xs">

@@ -1,7 +1,7 @@
-"use client";
-import Icons from "@/components/icons";
-import { useIsMobile } from "@/context/mobile";
-import React from "react";
+"use client"
+import Icons from "@/components/icons"
+import { useIsMobile } from "@/context/mobile"
+import React from "react"
 const listOne = [
   {
     name: "Cover Letters",
@@ -20,14 +20,14 @@ const listOne = [
     icon: <Icons.graduationCap className="stroke-primary" />,
   },
   {
-    name: "Carrer Advice",
+    name: "Career Advice",
     icon: <Icons.lightBulb className="stroke-yellow" />,
   },
   {
     name: "Resume Templates",
     icon: <Icons.file className="stroke-green" />,
   },
-];
+]
 
 const listTwo = [
   {
@@ -59,10 +59,10 @@ const listTwo = [
   },
   {
     name: "Job Search",
-    icon: <Icons.search className="stroke-yellow" />,
+    icon: <Icons.search className="stroke-green" />,
     soon: true,
   },
-];
+]
 
 const listThree = [
   {
@@ -88,10 +88,10 @@ const listThree = [
     name: "1-on-1 Support",
     icon: <Icons.headphones className="stroke-yellow" />,
   },
-];
+]
 
 const Features = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile()
   return (
     <section className="block max-w-screen-2xl mx-auto">
       <div className="overflow-hidden gap-y-6 flex flex-col w-full relative">
@@ -146,7 +146,7 @@ const Features = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features

@@ -3,7 +3,7 @@ import React from "react"
 
 const loading = () => {
   return (
-    <main className="px-6">
+    <main className="px-6 animate-in fade-in-25 delay-300">
       <section className="max-w-screen-xl mx-auto my-10 md:my-20 space-y-8 md:space-y-[140px]">
         <h1 className="max-w-3xl mx-auto text-start lg:text-center">
           Insights and inspiration: <br />
