@@ -57,11 +57,6 @@ const listTwo = [
     name: "Calendar",
     icon: <Icons.calendar className="stroke-green" />,
   },
-  {
-    name: "Job Search",
-    icon: <Icons.search className="stroke-green" />,
-    soon: true,
-  },
 ]
 
 const listThree = [
@@ -110,7 +105,7 @@ const Features = () => {
           ))}
         </div>
         <div className="flex gap-4 sm:gap-6 m-auto left-0 whitespace-nowrap will-change-transform horizontal-scroll-left">
-          {[...listTwo, ...listTwo].map((l, i) => (
+          {[...listTwo, ...listTwo, ...listTwo].map((l, i) => (
             <div
               key={i}
               className="gap-4 px-4 sm:px-6 py-4 items-center flex space-x-4w-fit  bg-white w-max rounded-2xl relative"
