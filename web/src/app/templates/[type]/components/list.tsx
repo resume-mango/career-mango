@@ -145,7 +145,7 @@ const TemplatesList = ({
                 alt={t.name}
                 width={400}
                 height={400}
-                className="bg-lightGray/20"
+                className="bg-lightGray/20 object-cover h-fit md:h-[400px] rounded-md mx-auto"
               />
             </Link>
             <div>

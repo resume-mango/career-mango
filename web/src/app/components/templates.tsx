@@ -114,7 +114,7 @@ const Templates = ({
         {curr.map((t) => (
           <div
             key={category + t._id}
-            className="space-y-4 md:p-0 animate-in fade-in zoom-in-90 duration-300"
+            className="space-y-4 md:p-0 animate-in fade-in zoom-in-90 duration-300 h-full flex flex-col"
           >
             <Link
               href={`${process.env.NEXT_PUBLIC_APP_URL}/resumes/new/${t.name}`}
@@ -125,7 +125,7 @@ const Templates = ({
                 alt={t.name}
                 width={400}
                 height={400}
-                className="bg-lightGray/20"
+                className="bg-lightGray/20 object-cover h-fit md:h-[400px] rounded-md mx-auto"
               />
             </Link>
             <div>
