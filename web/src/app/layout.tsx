@@ -1,30 +1,30 @@
-import type { Metadata } from "next"
-import localFont from "next/font/local"
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-import "./globals.css"
-import { getIsSsrMobile } from "@/hooks/isMobile"
-import { SsrMobileProvider } from "@/context/mobile"
-import { ViewportProvider } from "@/context/viewport"
-import configuration from "../../config"
-import Script from "next/script"
+import "./globals.css";
+import { getIsSsrMobile } from "@/hooks/isMobile";
+import { SsrMobileProvider } from "@/context/mobile";
+import { ViewportProvider } from "@/context/viewport";
+import configuration from "../../config";
+import Script from "next/script";
 
-export const merchant = localFont({
+const merchant = localFont({
   src: [
     {
       path: "../../public/fonts/merchant-variable.ttf",
     },
   ],
   variable: "--font-merchant",
-})
+});
 
-export const outfit = localFont({
+const outfit = localFont({
   src: [
     {
       path: "../../public/fonts/outfit-variable.ttf",
     },
   ],
   variable: "--font-outfit",
-})
+});
 
 export const metadata: Metadata = {
   title: {
@@ -53,10 +53,10 @@ export const metadata: Metadata = {
     title: configuration.site.name,
     creator: configuration.site.twitterHandle,
   },
-}
+};
 
 export default function RootLayout(props: any) {
-  const isMobile = getIsSsrMobile()
+  const isMobile = getIsSsrMobile();
   return (
     <html lang="en">
       <Script
@@ -88,5 +88,5 @@ export default function RootLayout(props: any) {
         </ViewportProvider>
       </SsrMobileProvider>
     </html>
-  )
+  );
 }

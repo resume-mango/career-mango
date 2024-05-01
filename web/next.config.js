@@ -23,8 +23,8 @@ module.exports = withSentryConfig(
 
     // Suppresses source map uploading logs during build
     silent: true,
-    org: "resume-mango",
-    project: "static-app",
+    org: "careermango",
+    project: "javascript-nextjs",
   },
   {
     // For all available options, see:
